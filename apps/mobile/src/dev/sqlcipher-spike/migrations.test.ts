@@ -40,6 +40,6 @@ describe('sqlcipher-spike migration contracts', () => {
   });
 
   it('uses authenticated-read verification SQL', () => {
-    expect(SQL_VERIFY_SCHEMA).toContain('sqlite_master');
+    expect(SQL_VERIFY_SCHEMA).toBe('SELECT name FROM sqlite_master;');
   });
 });

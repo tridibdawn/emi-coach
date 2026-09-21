@@ -27,9 +27,16 @@ export type CompatibilitySpikeResult = {
   runtimeEncryption: SpikeGateStatus;
   migration: SpikeGateStatus;
   persistence: SpikeGateStatus;
-  wrongKeyOpenBehavior: string;
-  wrongKeyAuthenticatedReadBehavior: string;
   sqlCipherNative: boolean;
+  correctKeyOpen: string;
+  migrationSchemaMigrations: string;
+  marker: string;
+  wrongKeyOpenBehavior: string;
+  wrongKeyOpenErrorText: string;
+  wrongKeyAuthenticatedReadErrorText: string;
+  wrongKeyAuthenticatedRead: SpikeGateStatus;
+  correctKeyReopen: string;
+  persistenceMarker: SpikeGateStatus;
   details: string[];
   error?: string;
 };
@@ -44,6 +51,57 @@ function isWrongKeyReadError(error: unknown): boolean {
     normalized.includes('encrypted') ||
     normalized.includes('malformed')
   );
+}
+
+function errorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error ?? 'unknown error');
+}
+
+/**
+ * Copy-ready evidence block for Phase 1B Android documentation.
+ */
+export function formatAndroidSpikeEvidence(
+  result: CompatibilitySpikeResult,
+): string {
+  return [
+    'ANDROID PHASE 1B SQLCIPHER SPIKE',
+    '',
+    'isSQLCipher():',
+    String(result.sqlCipherNative),
+    '',
+    'Correct-key open:',
+    result.correctKeyOpen,
+    '',
+    'Migration 001 / schema_migrations:',
+    result.migrationSchemaMigrations,
+    '',
+    'Marker:',
+    result.marker,
+    '',
+    'Wrong-key open:',
+    result.wrongKeyOpenBehavior,
+    '',
+    'Exact wrong-key error text:',
+    result.wrongKeyAuthenticatedReadErrorText,
+    '',
+    'Wrong-key authenticated read:',
+    result.wrongKeyAuthenticatedRead,
+    '',
+    'Correct-key reopen:',
+    result.correctKeyReopen,
+    '',
+    'Persistence marker phase1b-spike-v1:',
+    result.persistenceMarker,
+    '',
+    'Android RUNTIME ENCRYPTION:',
+    result.runtimeEncryption,
+    '',
+    'Android MIGRATION:',
+    result.migration,
+    '',
+    'Android PERSISTENCE:',
+    result.persistence,
+  ].join('\n');
 }
 
 async function applyMigration001(
@@ -74,88 +132,159 @@ async function applyMigration001(
   }
 }
 
+function deriveRuntimeEncryption(
+  sqlCipherNative: boolean,
+  correctKeySucceeded: boolean,
+  wrongKeyAuthenticatedRead: SpikeGateStatus,
+): SpikeGateStatus {
+  if (!sqlCipherNative || !correctKeySucceeded) {
+    return 'FAIL';
+  }
+  if (wrongKeyAuthenticatedRead === 'PASS') {
+    return 'PASS';
+  }
+  if (wrongKeyAuthenticatedRead === 'NOT_RUN') {
+    return 'NOT_RUN';
+  }
+  return 'FAIL';
+}
+
 /**
  * Runs the authenticated-read wrong-key gate and persistence checks.
  */
 export async function runCompatibilitySpike(): Promise<CompatibilitySpikeResult> {
   const details: string[] = [];
+  const sqlCipherNative = isSQLCipher();
+
   const result: CompatibilitySpikeResult = {
     runtimeEncryption: 'NOT_RUN',
     migration: 'NOT_RUN',
     persistence: 'NOT_RUN',
+    sqlCipherNative,
+    correctKeyOpen: 'not tested',
+    migrationSchemaMigrations: 'not tested',
+    marker: 'not tested',
     wrongKeyOpenBehavior: 'not tested',
-    wrongKeyAuthenticatedReadBehavior: 'not tested',
-    sqlCipherNative: isSQLCipher(),
+    wrongKeyOpenErrorText: '',
+    wrongKeyAuthenticatedReadErrorText: 'NOT RUN',
+    wrongKeyAuthenticatedRead: 'NOT_RUN',
+    correctKeyReopen: 'not tested',
+    persistenceMarker: 'NOT_RUN',
     details,
   };
+
+  details.push(`isSQLCipher(): ${String(sqlCipherNative)}`);
+
+  let correctKeySucceeded = false;
 
   try {
     const correctKey = await getDatabaseKey();
     const wrongKey = await getWrongDatabaseKey();
 
-    details.push(`isSQLCipher(): ${String(result.sqlCipherNative)}`);
+    // Phase A — correct-key creation
+    try {
+      const seeded = await applyMigration001(correctKey);
+      correctKeySucceeded = true;
+      result.correctKeyOpen = 'PASS — open and execute succeeded';
+      result.migration = seeded.migrationRecorded ? 'PASS' : 'FAIL';
+      result.marker = seeded.marker;
+      result.migrationSchemaMigrations = seeded.migrationRecorded
+        ? `PASS — version ${MIGRATION_001_VERSION} (${MIGRATION_001_NAME}) recorded`
+        : `FAIL — migration 001 not recorded (marker=${seeded.marker})`;
+      details.push(
+        `phase A migration=${result.migration} marker=${seeded.marker}`,
+      );
+    } catch (phaseAError) {
+      result.correctKeyOpen = `FAIL — ${errorMessage(phaseAError)}`;
+      result.migration = 'FAIL';
+      result.migrationSchemaMigrations = `FAIL — ${errorMessage(phaseAError)}`;
+      details.push(`phase A fatal: ${errorMessage(phaseAError)}`);
+      result.runtimeEncryption = deriveRuntimeEncryption(
+        sqlCipherNative,
+        false,
+        result.wrongKeyAuthenticatedRead,
+      );
+      return result;
+    }
 
-    const seeded = await applyMigration001(correctKey);
-    result.migration = seeded.migrationRecorded ? 'PASS' : 'FAIL';
-    details.push(
-      `migration 001 recorded: ${String(seeded.migrationRecorded)} marker=${seeded.marker}`,
-    );
-
+    // Phase B — wrong-key authentication test
     let wrongKeyDb: ReturnType<typeof open> | undefined;
     try {
       wrongKeyDb = open({ name: SPIKE_DB_NAME, encryptionKey: wrongKey });
-      result.wrongKeyOpenBehavior = 'open returned handle (no throw)';
+      result.wrongKeyOpenBehavior = 'handle returned (no throw)';
+      result.wrongKeyOpenErrorText = '';
     } catch (openError) {
-      result.wrongKeyOpenBehavior = `open threw: ${
-        openError instanceof Error ? openError.message : String(openError)
-      }`;
+      const openMessage = errorMessage(openError);
+      result.wrongKeyOpenBehavior = 'threw immediately';
+      result.wrongKeyOpenErrorText = openMessage;
+      result.wrongKeyAuthenticatedRead = 'NOT_RUN';
+      result.wrongKeyAuthenticatedReadErrorText = 'NOT RUN';
+      details.push(`phase B wrong-key open threw: ${openMessage}`);
     }
 
-    try {
-      const dbForProbe = wrongKeyDb ?? open({ name: SPIKE_DB_NAME, encryptionKey: wrongKey });
+    if (wrongKeyDb) {
       try {
-        await dbForProbe.execute(SQL_VERIFY_SCHEMA);
-        result.wrongKeyAuthenticatedReadBehavior =
+        await wrongKeyDb.execute(SQL_VERIFY_SCHEMA);
+        result.wrongKeyAuthenticatedReadErrorText =
           'authenticated read succeeded unexpectedly';
-        result.runtimeEncryption = 'FAIL';
+        result.wrongKeyAuthenticatedRead = 'FAIL';
+        details.push('phase B wrong-key read succeeded unexpectedly');
       } catch (readError) {
-        const message =
-          readError instanceof Error ? readError.message : String(readError);
-        result.wrongKeyAuthenticatedReadBehavior = message;
-        result.runtimeEncryption = isWrongKeyReadError(readError) ? 'PASS' : 'FAIL';
-        details.push(`wrong-key read error: ${message}`);
+        const readMessage = errorMessage(readError);
+        result.wrongKeyAuthenticatedReadErrorText = readMessage;
+        result.wrongKeyAuthenticatedRead = isWrongKeyReadError(readError)
+          ? 'PASS'
+          : 'FAIL';
+        details.push(`phase B wrong-key read error: ${readMessage}`);
       } finally {
-        if (dbForProbe !== wrongKeyDb) {
-          dbForProbe.close();
-        }
+        wrongKeyDb.close();
       }
-    } finally {
-      wrongKeyDb?.close();
     }
 
-    const db = open({ name: SPIKE_DB_NAME, encryptionKey: correctKey });
+    result.runtimeEncryption = deriveRuntimeEncryption(
+      sqlCipherNative,
+      correctKeySucceeded,
+      result.wrongKeyAuthenticatedRead,
+    );
+
+    // Phase C — persistence test
     try {
-      const migration = await db.execute(SQL_SELECT_MIGRATION, [
-        MIGRATION_001_VERSION,
-      ]);
-      const row = await db.execute(SQL_SELECT_TEST_ROW);
-      const marker = String(row.rows?.[0]?.marker ?? '');
-      const migrationOk =
-        Number(migration.rows?.[0]?.version) === MIGRATION_001_VERSION &&
-        marker === TEST_ROW_MARKER;
-      result.persistence = migrationOk ? 'PASS' : 'FAIL';
-      details.push(`reopen marker=${marker} migrationOk=${String(migrationOk)}`);
-      if (result.migration === 'PASS' && result.runtimeEncryption === 'PASS') {
-        // migration already set above; runtime set from wrong-key probe
+      const db = open({ name: SPIKE_DB_NAME, encryptionKey: correctKey });
+      try {
+        const migration = await db.execute(SQL_SELECT_MIGRATION, [
+          MIGRATION_001_VERSION,
+        ]);
+        const row = await db.execute(SQL_SELECT_TEST_ROW);
+        const marker = String(row.rows?.[0]?.marker ?? '');
+        const migrationOk =
+          Number(migration.rows?.[0]?.version) === MIGRATION_001_VERSION &&
+          String(migration.rows?.[0]?.name) === MIGRATION_001_NAME;
+        const markerOk = marker === TEST_ROW_MARKER;
+
+        result.persistence = migrationOk && markerOk ? 'PASS' : 'FAIL';
+        result.persistenceMarker = markerOk ? 'PASS' : 'FAIL';
+        result.correctKeyReopen = migrationOk && markerOk
+          ? `PASS — migration 001 and marker ${TEST_ROW_MARKER} present`
+          : `FAIL — migrationOk=${String(migrationOk)} marker=${marker}`;
+        details.push(`phase C reopen marker=${marker} migrationOk=${String(migrationOk)}`);
+      } finally {
+        db.close();
       }
-    } finally {
-      db.close();
+    } catch (phaseCError) {
+      result.persistence = 'FAIL';
+      result.persistenceMarker = 'FAIL';
+      result.correctKeyReopen = `FAIL — ${errorMessage(phaseCError)}`;
+      details.push(`phase C fatal: ${errorMessage(phaseCError)}`);
     }
   } catch (error) {
-    result.error = error instanceof Error ? error.message : String(error);
-    if (result.runtimeEncryption === 'NOT_RUN') result.runtimeEncryption = 'FAIL';
+    result.error = errorMessage(error);
     if (result.migration === 'NOT_RUN') result.migration = 'FAIL';
     if (result.persistence === 'NOT_RUN') result.persistence = 'FAIL';
+    result.runtimeEncryption = deriveRuntimeEncryption(
+      sqlCipherNative,
+      correctKeySucceeded,
+      result.wrongKeyAuthenticatedRead,
+    );
     details.push(`fatal: ${result.error}`);
   }
 

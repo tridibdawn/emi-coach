@@ -63,18 +63,62 @@ The authenticated-read failure is the encryption correctness gate. File-exists c
 
 ### Current results
 
-Last updated: 2026-09-21 (Android CI BUILD COMPATIBILITY recorded).
+Last updated: 2026-09-21 (Android spike prep; runtime gates awaiting device/emulator).
 
 | Gate | Status | Evidence source | Notes |
 |---|---|---|---|
 | BUILD COMPATIBILITY (Android) | **PASS** | GitHub Actions `ci / Android debug assemble (push)` | Completed successfully (~6m). Proves native compile with SQLCipher linked via `assembleDebug` only. Does **not** prove RUNTIME ENCRYPTION, MIGRATION, or PERSISTENCE. |
 | BUILD COMPATIBILITY (iOS) | **FAIL** locally / **NOT RUN** in CI | Local `pod install` + `xcodebuild`; gated `ios.yml` | Local: `pod install` OK with `[OP-SQLITE] using SQLCipher`; `xcodebuild` exit 70 (`IDESimulatorFoundation` plug-in). CI: workflow requires `ENABLE_IOS_CI=true` (not enabled). Fixed command: `yarn react-native build-ios --mode Debug --extra-params "-sdk iphonesimulator"`. |
-| RUNTIME ENCRYPTION | **NOT RUN** | Local `__DEV__` spike only | Requires emulator/device; see runbook below |
-| MIGRATION | **NOT RUN** | Local `__DEV__` spike only | Same spike run |
-| PERSISTENCE | **NOT RUN** | Local `__DEV__` spike only | Same spike run |
+| RUNTIME ENCRYPTION (Android) | **NOT RUN** | Local `__DEV__` spike on emulator/device | No `adb` / `ANDROID_HOME` / JDK on prep machine; see Android runbook and evidence block below |
+| MIGRATION (Android) | **NOT RUN** | Same Android spike run | — |
+| PERSISTENCE (Android) | **NOT RUN** | Same Android spike run | — |
 | SQLITE CONFLICT CHECK | **PASS** | `yarn sqlite-conflicts` | 2026-09-21 |
 
-**Overall Phase 1B: NOT YET PASS** — RUNTIME ENCRYPTION, MIGRATION, and PERSISTENCE remain NOT RUN; iOS BUILD failed locally and CI iOS is gated. Android `assembleDebug` success does not satisfy runtime gates.
+**Overall Phase 1B: NOT YET PASS** — Android RUNTIME ENCRYPTION, MIGRATION, and PERSISTENCE remain NOT RUN (no emulator/device on prep machine). iOS BUILD failed locally and CI iOS is gated. Android `assembleDebug` success does not satisfy runtime gates.
+
+### Android native spike evidence (awaiting device/emulator)
+
+No native spike was executed on the prep machine (`adb` unavailable). After the next Android Debug run, copy the **Copy-ready evidence** block from the spike screen into this section. Until then:
+
+```text
+ANDROID PHASE 1B SQLCIPHER SPIKE
+
+isSQLCipher():
+NOT RUN
+
+Correct-key open:
+NOT RUN
+
+Migration 001 / schema_migrations:
+NOT RUN
+
+Marker:
+NOT RUN
+
+Wrong-key open:
+NOT RUN
+
+Exact wrong-key error text:
+NOT RUN
+
+Wrong-key authenticated read:
+NOT RUN
+
+Correct-key reopen:
+NOT RUN
+
+Persistence marker phase1b-spike-v1:
+NOT RUN
+
+Android RUNTIME ENCRYPTION:
+NOT RUN
+
+Android MIGRATION:
+NOT RUN
+
+Android PERSISTENCE:
+NOT RUN
+```
 
 Automated JS/Python gates (lint, typecheck, tests, boundaries, privacy, `op-sqlite-config`, `sqlcipher-spike-security`, backend): **PASS** (2026-09-21; same CI check page as Android assemble). These do **not** prove SQLCipher runtime encryption.
 
@@ -97,13 +141,30 @@ CI must **never** claim RUNTIME ENCRYPTION PASS from `assembleDebug` or `build-i
 - **Production/release:** `BootstrapScreen` only — spike UI is not bundled for production entry.
 - **No** permanent test button on `BootstrapScreen`.
 
+### Android-only next-run command sequence
+
+Prerequisites: `ANDROID_HOME` set, JDK 17, Android emulator or device, `adb devices` shows a usable target.
+
+```bash
+adb devices
+yarn workspace @emi-coach/mobile start
+# separate terminal, with ANDROID_HOME + JDK 17:
+cd apps/mobile/android && ./gradlew assembleDebug --no-daemon
+yarn workspace @emi-coach/mobile android
+# Debug app → Phase 1B SQLCipher Spike → Run compatibility spike
+```
+
+Wrong-key verification uses exactly: `SELECT name FROM sqlite_master;`  
+If wrong-key `open()` throws, record the open error separately; authenticated-read is **NOT RUN** unless a handle was returned and the query was executed.
+
 ### Steps
 
 1. `yarn install` (applies OP-SQLite patch)
-2. Build and install on emulator/device (Android: SDK + `./gradlew assembleDebug` or `yarn workspace @emi-coach/mobile android`; iOS: repair Xcode if needed, then `cd apps/mobile && bundle install && bundle exec pod install --project-directory=ios`)
+2. Build and install on emulator/device (Android: use command sequence above; iOS: repair Xcode if needed, then `cd apps/mobile && bundle install && bundle exec pod install --project-directory=ios`)
 3. Start Metro: `yarn workspace @emi-coach/mobile start`
 4. Launch Debug app on emulator/device
 5. Tap **Run compatibility spike** on the Phase 1B SQLCipher Spike screen
+6. Copy the **Copy-ready evidence** block into this document
 
 ### Evidence to record (copy into this table after each platform run)
 
@@ -111,7 +172,7 @@ CI must **never** claim RUNTIME ENCRYPTION PASS from `assembleDebug` or `build-i
 |---|---|
 | `isSQLCipher()` | `true` |
 | Wrong-key **open** | May return handle or throw — record exact message |
-| Wrong-key **authenticated read** (`SELECT sqlite_master`) | **Must fail** — `SQLITE_NOTADB` / “file is encrypted or is not a database” |
+| Wrong-key **authenticated read** (`SELECT name FROM sqlite_master;`) | **Must fail** — `SQLITE_NOTADB` / “file is encrypted or is not a database” |
 | RUNTIME ENCRYPTION gate | PASS only if authenticated-read fails as above |
 | MIGRATION gate | PASS if migration 001 recorded in `schema_migrations` |
 | PERSISTENCE gate | PASS if reopen with correct key returns marker `phase1b-spike-v1` |

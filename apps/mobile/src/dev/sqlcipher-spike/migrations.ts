@@ -26,4 +26,4 @@ export const SQL_RECORD_MIGRATION = `INSERT OR REPLACE INTO schema_migrations (v
 
 export const SQL_SELECT_MIGRATION = `SELECT version, name FROM schema_migrations WHERE version = ?;`;
 
-export const SQL_VERIFY_SCHEMA = `SELECT name FROM sqlite_master WHERE type = 'table';`;
+export const SQL_VERIFY_SCHEMA = `SELECT name FROM sqlite_master;`;

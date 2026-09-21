@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import {
   CompatibilitySpikeResult,
+  formatAndroidSpikeEvidence,
   runCompatibilitySpike,
 } from './runCompatibilitySpike';
 
@@ -33,6 +34,8 @@ export function DevSqlCipherSpikeEntry() {
       setRunning(false);
     }
   }, []);
+
+  const evidenceText = result ? formatAndroidSpikeEvidence(result) : null;
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -58,6 +61,7 @@ export function DevSqlCipherSpikeEntry() {
 
       {result ? (
         <View style={styles.results}>
+          <Text style={styles.sectionTitle}>Gate summary</Text>
           <Text style={styles.resultLine}>
             {formatGate('RUNTIME ENCRYPTION', result.runtimeEncryption)}
           </Text>
@@ -67,21 +71,53 @@ export function DevSqlCipherSpikeEntry() {
           <Text style={styles.resultLine}>
             {formatGate('PERSISTENCE', result.persistence)}
           </Text>
-          <Text style={styles.meta}>
-            wrong-key open: {result.wrongKeyOpenBehavior}
-          </Text>
-          <Text style={styles.meta}>
-            wrong-key read: {result.wrongKeyAuthenticatedReadBehavior}
-          </Text>
+
+          <Text style={styles.sectionTitle}>Evidence</Text>
           <Text style={styles.meta}>
             isSQLCipher(): {String(result.sqlCipherNative)}
           </Text>
+          <Text style={styles.meta}>
+            Correct-key open: {result.correctKeyOpen}
+          </Text>
+          <Text style={styles.meta}>
+            Migration 001 / schema_migrations: {result.migrationSchemaMigrations}
+          </Text>
+          <Text style={styles.meta}>Marker: {result.marker}</Text>
+          <Text style={styles.meta}>
+            Wrong-key open: {result.wrongKeyOpenBehavior}
+          </Text>
+          {result.wrongKeyOpenErrorText ? (
+            <Text style={styles.meta}>
+              Wrong-key open error (verbatim): {result.wrongKeyOpenErrorText}
+            </Text>
+          ) : null}
+          <Text style={styles.meta}>
+            Exact wrong-key authenticated-read error (verbatim):{' '}
+            {result.wrongKeyAuthenticatedReadErrorText}
+          </Text>
+          <Text style={styles.meta}>
+            Wrong-key authenticated read: {result.wrongKeyAuthenticatedRead}
+          </Text>
+          <Text style={styles.meta}>
+            Correct-key reopen: {result.correctKeyReopen}
+          </Text>
+          <Text style={styles.meta}>
+            Persistence marker phase1b-spike-v1: {result.persistenceMarker}
+          </Text>
+
           {result.error ? (
             <Text style={styles.error}>error: {result.error}</Text>
           ) : null}
           {result.details.map((line) => (
             <Text key={line} style={styles.detail}>{line}</Text>
           ))}
+
+          {evidenceText ? (
+            <View style={styles.evidenceBlock}>
+              <Text style={styles.sectionTitle}>Copy-ready evidence</Text>
+              <Text style={styles.evidenceText}>{evidenceText}</Text>
+            </View>
+          ) : null}
         </View>
       ) : null}
     </ScrollView>
@@ -129,6 +165,13 @@ const styles = StyleSheet.create({
   results: {
     gap: 6,
   },
+  sectionTitle: {
+    color: '#E8F5E9',
+    fontSize: 15,
+    fontWeight: '600',
+    marginTop: 12,
+    marginBottom: 4,
+  },
   resultLine: {
     color: '#E8F5E9',
     fontSize: 16,
@@ -147,5 +190,17 @@ const styles = StyleSheet.create({
     color: '#EF9A9A',
     fontSize: 13,
     marginTop: 8,
+  },
+  evidenceBlock: {
+    marginTop: 16,
+    padding: 12,
+    backgroundColor: '#1B3328',
+    borderRadius: 8,
+  },
+  evidenceText: {
+    color: '#C8E6C9',
+    fontSize: 11,
+    fontFamily: 'monospace',
+    lineHeight: 16,
   },
 });

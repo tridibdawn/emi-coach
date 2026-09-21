@@ -60,9 +60,9 @@ One active native SQLite at link time = OP-SQLite + SQLCipher. Scanner (`yarn sq
 |---|---|---|
 | BUILD COMPATIBILITY (Android) | CI `assembleDebug` (`.github/workflows/ci.yml`) | **PASS** — GitHub Actions `ci / Android debug assemble (push)` completed successfully. `assembleDebug` does not prove RUNTIME ENCRYPTION, MIGRATION, or PERSISTENCE. |
 | BUILD COMPATIBILITY (iOS) | Gated `ios.yml` when `ENABLE_IOS_CI=true`; `build-ios --mode Debug --extra-params "-sdk iphonesimulator"` | Local FAIL (`xcodebuild` plug-in); CI NOT RUN (`ENABLE_IOS_CI` not enabled) |
-| RUNTIME ENCRYPTION | Local `__DEV__` spike only | NOT RUN |
-| MIGRATION | Local `__DEV__` spike only | NOT RUN |
-| PERSISTENCE | Local `__DEV__` spike only | NOT RUN |
+| RUNTIME ENCRYPTION (Android) | Local `__DEV__` spike on emulator/device | **NOT RUN** — no `adb` / emulator on prep machine; spike UI ready with copy-ready evidence block |
+| MIGRATION (Android) | Same Android spike run | **NOT RUN** |
+| PERSISTENCE (Android) | Same Android spike run | **NOT RUN** |
 | SQLITE CONFLICT CHECK | `yarn sqlite-conflicts` | PASS |
 
 **Overall Phase 1B: NOT YET PASS.**
