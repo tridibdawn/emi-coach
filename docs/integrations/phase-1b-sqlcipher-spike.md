@@ -63,20 +63,20 @@ The authenticated-read failure is the encryption correctness gate. File-exists c
 
 ### Current results
 
-Last updated: 2026-09-21 (pre-verification + CI/spike runbook).
+Last updated: 2026-09-21 (Android CI BUILD COMPATIBILITY recorded).
 
 | Gate | Status | Evidence source | Notes |
 |---|---|---|---|
-| BUILD COMPATIBILITY (Android) | **NOT RUN** locally | CI `.github/workflows/ci.yml` `assembleDebug` | No JDK / `ANDROID_HOME` on dev machine; confirm via `gh run list --workflow=ci.yml` → **Android debug assemble** job. Success = compile only, not runtime encryption. |
+| BUILD COMPATIBILITY (Android) | **PASS** | GitHub Actions `ci / Android debug assemble (push)` | Completed successfully (~6m). Proves native compile with SQLCipher linked via `assembleDebug` only. Does **not** prove RUNTIME ENCRYPTION, MIGRATION, or PERSISTENCE. |
 | BUILD COMPATIBILITY (iOS) | **FAIL** locally / **NOT RUN** in CI | Local `pod install` + `xcodebuild`; gated `ios.yml` | Local: `pod install` OK with `[OP-SQLITE] using SQLCipher`; `xcodebuild` exit 70 (`IDESimulatorFoundation` plug-in). CI: workflow requires `ENABLE_IOS_CI=true` (not enabled). Fixed command: `yarn react-native build-ios --mode Debug --extra-params "-sdk iphonesimulator"`. |
 | RUNTIME ENCRYPTION | **NOT RUN** | Local `__DEV__` spike only | Requires emulator/device; see runbook below |
 | MIGRATION | **NOT RUN** | Local `__DEV__` spike only | Same spike run |
 | PERSISTENCE | **NOT RUN** | Local `__DEV__` spike only | Same spike run |
 | SQLITE CONFLICT CHECK | **PASS** | `yarn sqlite-conflicts` | 2026-09-21 |
 
-**Overall Phase 1B: NOT YET PASS** — RUNTIME ENCRYPTION, MIGRATION, and PERSISTENCE remain NOT RUN; Android BUILD not confirmed locally; iOS BUILD failed locally and CI iOS is gated.
+**Overall Phase 1B: NOT YET PASS** — RUNTIME ENCRYPTION, MIGRATION, and PERSISTENCE remain NOT RUN; iOS BUILD failed locally and CI iOS is gated. Android `assembleDebug` success does not satisfy runtime gates.
 
-Automated JS/Python gates (lint, typecheck, tests, boundaries, privacy, `op-sqlite-config`, `sqlcipher-spike-security`, backend): **PASS** (2026-09-21). These do **not** prove SQLCipher runtime encryption.
+Automated JS/Python gates (lint, typecheck, tests, boundaries, privacy, `op-sqlite-config`, `sqlcipher-spike-security`, backend): **PASS** (2026-09-21; same CI check page as Android assemble). These do **not** prove SQLCipher runtime encryption.
 
 ## CI vs local evidence matrix
 
