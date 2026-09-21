@@ -1566,7 +1566,7 @@ __metadata:
     prettier: "npm:2.8.8"
     react: "npm:19.2.3"
     react-native: "npm:0.87.1"
-    react-native-safe-area-context: "npm:5.5.2"
+    react-native-safe-area-context: "npm:5.8.1"
     react-test-renderer: "npm:19.2.3"
     typescript: "npm:^5.9.2"
   languageName: unknown
@@ -8232,13 +8232,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:5.5.2":
-  version: 5.5.2
-  resolution: "react-native-safe-area-context@npm:5.5.2"
+"react-native-safe-area-context@npm:5.8.1":
+  version: 5.8.1
+  resolution: "react-native-safe-area-context@npm:5.8.1"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/529cafcafbc1d994f6d9c9be41ae4f78768b7c103a22265d3fe5223a930249e0a07a934b5ec358ce510622061f339a20c2147b620bd15032366b12b4258c2ce5
+  checksum: 10c0/b04491f2dd97faf4a0afcb198ba803239676580a9523b23614346236149d0419abb8d0422574f4ce1782d606be6e5741b8e6841d807c48f69247a497a7a511aa
   languageName: node
   linkType: hard
 
