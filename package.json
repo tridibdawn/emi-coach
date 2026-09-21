@@ -13,6 +13,9 @@
     "test:packages": "vitest run",
     "boundaries": "depcruise --config .dependency-cruiser.cjs packages apps/mobile/src",
     "privacy-scan": "node scripts/privacy-scan.mjs && python3 scripts/privacy_scan_backend.py",
+    "sqlite-conflicts": "node scripts/scan-sqlite-conflicts.mjs",
+    "op-sqlite-config": "node scripts/check-op-sqlite-config.mjs",
+    "sqlcipher-spike-security": "node scripts/scan-sqlcipher-spike-security.mjs",
     "backend:test": "cd backend && .venv/bin/pytest -q",
     "backend:lint": "cd backend && .venv/bin/ruff check . && .venv/bin/mypy app",
     "android:assemble": "yarn workspace @emi-coach/mobile android:assemble"
@@ -27,5 +30,8 @@
   },
   "engines": {
     "node": ">=22.13.0"
+  },
+  "op-sqlite": {
+    "sqlcipher": true
   }
 }

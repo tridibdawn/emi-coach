@@ -1,12 +1,12 @@
 # Graph Report - /Users/tridibdawn/Documents/EMI Coach Application/emi-coach  (2026-09-21)
 
 ## Corpus Check
-- 57 files · ~18,898 words
+- 69 files · ~22,331 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 103 nodes · 62 edges · 53 communities detected
-- Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 7 edges (avg confidence: 0.67)
+- 130 nodes · 89 edges · 62 communities detected
+- Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.71)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -63,18 +63,27 @@
 - [[_COMMUNITY_Community 50|Community 50]]
 - [[_COMMUNITY_Community 51|Community 51]]
 - [[_COMMUNITY_Community 52|Community 52]]
+- [[_COMMUNITY_Community 53|Community 53]]
+- [[_COMMUNITY_Community 54|Community 54]]
+- [[_COMMUNITY_Community 55|Community 55]]
+- [[_COMMUNITY_Community 56|Community 56]]
+- [[_COMMUNITY_Community 57|Community 57]]
+- [[_COMMUNITY_Community 58|Community 58]]
+- [[_COMMUNITY_Community 59|Community 59]]
+- [[_COMMUNITY_Community 60|Community 60]]
+- [[_COMMUNITY_Community 61|Community 61]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Base` - 5 edges
 2. `Settings` - 5 edges
 3. `ReactNativeDelegate` - 5 edges
-4. `ready()` - 4 edges
-5. `AppDelegate` - 4 edges
-6. `RedactingFilter` - 3 edges
-7. `get_settings()` - 3 edges
-8. `HealthResponse` - 3 edges
-9. `ReadyResponse` - 3 edges
-10. `MainActivity` - 3 edges
+4. `runCompatibilitySpike()` - 5 edges
+5. `ready()` - 4 edges
+6. `main()` - 4 edges
+7. `AppDelegate` - 4 edges
+8. `RedactingFilter` - 3 edges
+9. `get_settings()` - 3 edges
+10. `HealthResponse` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Base` --uses--> `Alembic env. No financial ledger models exist in Phase 1.`  [INFERRED]
@@ -83,10 +92,10 @@
   /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py
 - `get_settings()` --calls--> `ready()`  [INFERRED]
   /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py
-- `Base` --uses--> `Settings`  [INFERRED]
-  /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py
-- `check_database()` --calls--> `ready()`  [INFERRED]
-  /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py
+- `runCompatibilitySpike()` --calls--> `getDatabaseKey()`  [INFERRED]
+  /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/dev/sqlcipher-spike/runCompatibilitySpike.ts → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/dev/sqlcipher-spike/TestDatabaseKeyProvider.ts
+- `runCompatibilitySpike()` --calls--> `getWrongDatabaseKey()`  [INFERRED]
+  /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/dev/sqlcipher-spike/runCompatibilitySpike.ts → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/dev/sqlcipher-spike/TestDatabaseKeyProvider.ts
 
 ## Communities
 
@@ -95,56 +104,56 @@ Cohesion: 0.22
 Nodes (7): BaseSettings, get_settings(), Settings, Base, Server metadata only. No financial ledger tables., DeclarativeBase, Alembic env. No financial ledger models exist in Phase 1.
 
 ### Community 1 - "Community 1"
+Cohesion: 0.29
+Nodes (6): configsMatch(), main(), readJson(), configure_logging(), _redact(), RedactingFilter
+
+### Community 2 - "Community 2"
 Cohesion: 0.28
 Nodes (5): AppDelegate, ReactNativeDelegate, RCTDefaultReactNativeFactoryDelegate, UIApplicationDelegate, UIResponder
 
-### Community 2 - "Community 2"
+### Community 3 - "Community 3"
 Cohesion: 0.36
 Nodes (6): BaseModel, check_database(), health(), HealthResponse, ready(), ReadyResponse
 
-### Community 3 - "Community 3"
-Cohesion: 0.47
-Nodes (3): configure_logging(), _redact(), RedactingFilter
-
 ### Community 4 - "Community 4"
+Cohesion: 0.43
+Nodes (5): applyMigration001(), isWrongKeyReadError(), runCompatibilitySpike(), getDatabaseKey(), getWrongDatabaseKey()
+
+### Community 5 - "Community 5"
 Cohesion: 0.33
 Nodes (3): BootstrapScreen(), buildFinancialState(), getSqlCipherPlaceholder()
 
-### Community 5 - "Community 5"
-Cohesion: 0.5
-Nodes (0): 
-
 ### Community 6 - "Community 6"
-Cohesion: 0.67
-Nodes (2): main(), pkg_json()
+Cohesion: 0.6
+Nodes (3): main(), scanSqliteConflicts(), walkFiles()
 
 ### Community 7 - "Community 7"
 Cohesion: 0.5
-Nodes (1): MainActivity
+Nodes (0): 
 
 ### Community 8 - "Community 8"
-Cohesion: 0.67
-Nodes (0): 
+Cohesion: 0.83
+Nodes (3): listTsFiles(), main(), stripComments()
 
 ### Community 9 - "Community 9"
 Cohesion: 0.67
-Nodes (1): MainApplication
+Nodes (2): main(), pkg_json()
 
 ### Community 10 - "Community 10"
-Cohesion: 1.0
-Nodes (1): No SQLAlchemy financial models. This module is scanned by the privacy CI check.
+Cohesion: 0.5
+Nodes (1): MainActivity
 
 ### Community 11 - "Community 11"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0): 
 
 ### Community 12 - "Community 12"
-Cohesion: 1.0
-Nodes (0): 
+Cohesion: 0.67
+Nodes (1): MainApplication
 
 ### Community 13 - "Community 13"
 Cohesion: 1.0
-Nodes (0): 
+Nodes (1): No SQLAlchemy financial models. This module is scanned by the privacy CI check.
 
 ### Community 14 - "Community 14"
 Cohesion: 1.0
@@ -302,36 +311,66 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 53 - "Community 53"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 54 - "Community 54"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 55 - "Community 55"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 56 - "Community 56"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 57 - "Community 57"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 58 - "Community 58"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 59 - "Community 59"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 60 - "Community 60"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 61 - "Community 61"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
 - **1 isolated node(s):** `No SQLAlchemy financial models. This module is scanned by the privacy CI check.`
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 10`** (2 nodes): `No SQLAlchemy financial models. This module is scanned by the privacy CI check.`, `models.py`
+- **Thin community `Community 13`** (2 nodes): `No SQLAlchemy financial models. This module is scanned by the privacy CI check.`, `models.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 11`** (2 nodes): `App()`, `App.tsx`
+- **Thin community `Community 14`** (2 nodes): `App()`, `App.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 12`** (1 nodes): `vitest.config.ts`
+- **Thin community `Community 15`** (2 nodes): `formatGate()`, `DevSqlCipherSpikeEntry.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 13`** (1 nodes): `__init__.py`
+- **Thin community `Community 16`** (1 nodes): `vitest.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 14`** (1 nodes): `main.py`
+- **Thin community `Community 17`** (1 nodes): `__init__.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 15`** (1 nodes): `__init__.py`
+- **Thin community `Community 18`** (1 nodes): `main.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 16`** (1 nodes): `__init__.py`
+- **Thin community `Community 19`** (1 nodes): `__init__.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 17`** (1 nodes): `write_adrs.py`
+- **Thin community `Community 20`** (1 nodes): `__init__.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 18`** (1 nodes): `privacy_scan_backend.py`
+- **Thin community `Community 21`** (1 nodes): `write_adrs.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 19`** (1 nodes): `typecheck-packages.mjs`
+- **Thin community `Community 22`** (1 nodes): `privacy_scan_backend.py`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 20`** (1 nodes): `index.test.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 21`** (1 nodes): `index.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 22`** (1 nodes): `index.test.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 23`** (1 nodes): `index.ts`
+- **Thin community `Community 23`** (1 nodes): `typecheck-packages.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 24`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -343,13 +382,13 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 28`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 29`** (1 nodes): `index.test.ts`
+- **Thin community `Community 29`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 30`** (1 nodes): `index.ts`
+- **Thin community `Community 30`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 31`** (1 nodes): `index.test.ts`
+- **Thin community `Community 31`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 32`** (1 nodes): `index.ts`
+- **Thin community `Community 32`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 33`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -357,13 +396,13 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 35`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 36`** (1 nodes): `index.test.ts`
+- **Thin community `Community 36`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 37`** (1 nodes): `index.ts`
+- **Thin community `Community 37`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 38`** (1 nodes): `index.test.ts`
+- **Thin community `Community 38`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 39`** (1 nodes): `index.ts`
+- **Thin community `Community 39`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 40`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -381,28 +420,48 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 47`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 48`** (1 nodes): `jest.config.js`
+- **Thin community `Community 48`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 49`** (1 nodes): `index.js`
+- **Thin community `Community 49`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 50`** (1 nodes): `metro.config.js`
+- **Thin community `Community 50`** (1 nodes): `index.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 51`** (1 nodes): `babel.config.js`
+- **Thin community `Community 51`** (1 nodes): `index.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 52`** (1 nodes): `App.test.tsx`
+- **Thin community `Community 52`** (1 nodes): `jest.setup.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 53`** (1 nodes): `jest.config.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 54`** (1 nodes): `index.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 55`** (1 nodes): `metro.config.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 56`** (1 nodes): `babel.config.js`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 57`** (1 nodes): `App.test.tsx`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 58`** (1 nodes): `TestDatabaseKeyProvider.test.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 59`** (1 nodes): `migrations.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 60`** (1 nodes): `migrations.test.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 61`** (1 nodes): `testOnlyKey.fixture.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Base` connect `Community 0` to `Community 2`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Why does `ready()` connect `Community 2` to `Community 0`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **Why does `Base` connect `Community 0` to `Community 3`?**
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `ready()` connect `Community 3` to `Community 0`?**
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Base` (e.g. with `Settings` and `Alembic env. No financial ledger models exist in Phase 1.`) actually correct?**
   _`Base` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `Settings` (e.g. with `Base` and `Server metadata only. No financial ledger tables.`) actually correct?**
   _`Settings` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 2 inferred relationships involving `runCompatibilitySpike()` (e.g. with `getDatabaseKey()` and `getWrongDatabaseKey()`) actually correct?**
+  _`runCompatibilitySpike()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `ready()` (e.g. with `get_settings()` and `check_database()`) actually correct?**
   _`ready()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `No SQLAlchemy financial models. This module is scanned by the privacy CI check.` to the rest of the system?**

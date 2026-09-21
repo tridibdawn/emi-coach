@@ -22,6 +22,9 @@ jobs:
       - run: yarn test:packages
       - run: yarn workspace @emi-coach/mobile test --watchAll=false
       - run: yarn boundaries
+      - run: yarn sqlite-conflicts
+      - run: yarn op-sqlite-config
+      - run: yarn sqlcipher-spike-security
 
   privacy:
     name: Privacy forbidden-field scan

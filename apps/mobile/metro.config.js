@@ -18,6 +18,10 @@ const config = {
     ],
     disableHierarchicalLookup: true,
     extraNodeModules: {
+      '@op-engineering/op-sqlite': path.resolve(
+        projectRoot,
+        'node_modules/@op-engineering/op-sqlite',
+      ),
       '@emi-coach/types': path.resolve(workspaceRoot, 'packages/types'),
       '@emi-coach/financial-state': path.resolve(
         workspaceRoot,

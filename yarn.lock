@@ -1550,6 +1550,7 @@ __metadata:
     "@emi-coach/provider-contracts": "workspace:*"
     "@emi-coach/secure-storage": "workspace:*"
     "@emi-coach/ui": "workspace:*"
+    "@op-engineering/op-sqlite": "patch:@op-engineering/op-sqlite@npm%3A18.2.5#~/.yarn/patches/@op-engineering-op-sqlite-npm-18.2.5-c8b45e75fa.patch"
     "@react-native-community/cli": "npm:20.2.0"
     "@react-native-community/cli-platform-android": "npm:20.2.0"
     "@react-native-community/cli-platform-ios": "npm:20.2.0"
@@ -2260,6 +2261,34 @@ __metadata:
     "@nodelib/fs.scandir": "npm:2.1.5"
     fastq: "npm:^1.6.0"
   checksum: 10c0/db9de047c3bb9b51f9335a7bb46f4fcfb6829fb628318c12115fbaf7d369bfce71c15b103d1fc3b464812d936220ee9bc1c8f762d032c9f6be9acc99249095b1
+  languageName: node
+  linkType: hard
+
+"@op-engineering/op-sqlite@npm:18.2.5":
+  version: 18.2.5
+  resolution: "@op-engineering/op-sqlite@npm:18.2.5"
+  peerDependencies:
+    "@sqlite.org/sqlite-wasm": "*"
+    react: "*"
+    react-native: "*"
+  peerDependenciesMeta:
+    "@sqlite.org/sqlite-wasm":
+      optional: true
+  checksum: 10c0/5844498ae55fae9d986b91b81cbe026c6638bd3efe28806f0fbc4436ec76d5db780b3186323fd915ebbf537aa94ab407fefd9dc120f0b64b7ff5cf0159a9090a
+  languageName: node
+  linkType: hard
+
+"@op-engineering/op-sqlite@patch:@op-engineering/op-sqlite@npm%3A18.2.5#~/.yarn/patches/@op-engineering-op-sqlite-npm-18.2.5-c8b45e75fa.patch":
+  version: 18.2.5
+  resolution: "@op-engineering/op-sqlite@patch:@op-engineering/op-sqlite@npm%3A18.2.5#~/.yarn/patches/@op-engineering-op-sqlite-npm-18.2.5-c8b45e75fa.patch::version=18.2.5&hash=1e7f54"
+  peerDependencies:
+    "@sqlite.org/sqlite-wasm": "*"
+    react: "*"
+    react-native: "*"
+  peerDependenciesMeta:
+    "@sqlite.org/sqlite-wasm":
+      optional: true
+  checksum: 10c0/e791f8caba3149bd0a56e7fed867694beb9fe45d8ea26fd3d0583565fcb45ee8818275733c57f0a588f0d6443e704d636fa4ad6e3c70f68bccde04b4310044fa
   languageName: node
   linkType: hard
 

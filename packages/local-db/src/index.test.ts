@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { getSqlCipherPlaceholder } from "./index";
 
 describe("local-db", () => {
-  it("does not wire SQLCipher in Phase 1", () => {
-    expect(getSqlCipherPlaceholder().status).toBe("not_wired");
-    expect(getSqlCipherPlaceholder().nextPhase).toBe("1b");
+  it("keeps SQLCipher spike-only until Phase 2 wiring", () => {
+    expect(getSqlCipherPlaceholder().status).toBe("spike_only");
+    expect(getSqlCipherPlaceholder().nextPhase).toBe("2");
   });
 });

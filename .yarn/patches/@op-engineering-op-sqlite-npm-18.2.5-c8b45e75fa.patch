@@ -1,0 +1,16 @@
+diff --git a/android/build.gradle b/android/build.gradle
+index 3049da40003924ef578a2c92e0eae9bcc5babd0f..a96a14cf7113f647375a84081ab1de2e93af0e8d 100644
+--- a/android/build.gradle
++++ b/android/build.gradle
+@@ -68,8 +68,9 @@ def isUserApp = rootDir.absolutePath.contains("node_modules")
+ def packageJsonFile
+ 
+ if (isUserApp) {
+-  // Start from the root + 1 level up (to avoid detecting the op-sqlite/package.json) and traverse upwards to find the first package.json
+-  File currentDir = new File("$rootDir/../")
++  // Start from the parent of the package root (mirrors op-sqlite.podspec) to avoid
++  // reading this package's own package.json before the consuming app workspace.
++  File currentDir = new File("$rootDir/../../")
+   packageJsonFile = null
+ 
+   // Try to find package.json by traversing upwards

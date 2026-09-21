@@ -23,6 +23,8 @@ jobs:
       - name: CocoaPods
         working-directory: apps/mobile/ios
         run: bundle install && bundle exec pod install
-      - name: Build simulator
+      - name: Build simulator (BUILD COMPATIBILITY only)
         working-directory: apps/mobile
         run: yarn react-native build-ios --mode Debug --simulator "iPhone 16"
+      # RUNTIME ENCRYPTION / MIGRATION / PERSISTENCE require the __DEV__ spike UI on
+      # a simulator or device — see docs/integrations/phase-1b-sqlcipher-spike.md.
