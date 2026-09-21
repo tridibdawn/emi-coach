@@ -93,6 +93,69 @@ jobs:
         run: |
           set -o pipefail
           ./gradlew assembleDebug --no-daemon --stacktrace --console=plain 2>&1 | tee gradle-build.log
+      - name: Print Kotlin compiler errors from Gradle log
+        if: failure()
+        working-directory: apps/mobile/android
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          secret_markers = (
+              "password",
+              "secret",
+              "token",
+              "authorization",
+              "keystore",
+              "api_key",
+              "apikey",
+          )
+          needles = (
+              "e: ",
+              "error:",
+              "FAILURE:",
+              "What went wrong",
+              "Execution failed for task",
+              "CompilationErrorException",
+              "compileDebugKotlin",
+              "compileReleaseKotlin",
+              "compileKotlin",
+              "KotlinCompilation",
+          )
+
+          path = Path("gradle-build.log")
+          if not path.exists():
+              print("gradle-build.log is missing; cannot extract compiler errors")
+              raise SystemExit(0)
+
+          lines = path.read_text(errors="replace").splitlines()
+          selected = []
+          seen = set()
+          for i, line in enumerate(lines):
+              lower = line.lower()
+              if any(marker in lower for marker in secret_markers):
+                  continue
+              if any(needle.lower() in lower for needle in needles):
+                  start = max(0, i - 2)
+                  end = min(len(lines), i + 3)
+                  for j in range(start, end):
+                      if j not in seen:
+                          selected.append(lines[j])
+                          seen.add(j)
+
+          print("--- Kotlin / Gradle compiler-error extract (max 100 lines) ---")
+          if not selected:
+              print("No compiler-error markers found in gradle-build.log")
+              print("--- last 80 lines ---")
+              for line in lines[-80:]:
+                  lower = line.lower()
+                  if any(marker in lower for marker in secret_markers):
+                      continue
+                  print(line)
+          else:
+              for line in selected[:100]:
+                  print(line)
+          print("--- end extract ---")
+          PY
       - name: Upload Android Gradle failure log
         if: failure()
         uses: actions/upload-artifact@v4
