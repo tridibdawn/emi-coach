@@ -1,0 +1,24 @@
+---
+description: Core architectural and product rules for EMI Coach
+alwaysApply: true
+---
+
+# EMI Coach Engineering Principles
+
+- This is a financial application. Correctness, privacy, auditability and deterministic calculations have priority over speed of implementation.
+- Use React Native + TypeScript for shared UI and domain orchestration.
+- Isolate Android/iOS-specific behavior behind native modules or adapters.
+- Keep detailed personal financial records local on the device by default.
+- All user-facing financial calculations must be implemented in deterministic TypeScript packages (`amortization-engine`, `transaction-engine`, `cashflow-engine`, `debt-coach-engine`, `credit-engine`, `financial-state`).
+- Python must NOT calculate EMI, interest, amortization, debt-free dates, balance-transfer savings, cashflow metrics, or credit-card repayment math. Python is for backend metadata only.
+- Do not use an LLM to calculate money.
+- No financial ledger data may be stored on the backend. Do not introduce a backend transaction-ledger endpoint unless explicitly approved by an architecture document.
+- Screens may not import financial engine packages. `FinancialState` (`packages/financial-state`) is the only read model for dashboards and planning.
+- Never collect or persist bank passwords, UPI PINs, debit/ATM PINs, CVV, full PAN, or equivalent credentials.
+- External financial providers must be behind adapter interfaces. No vendor SDK is added without verification documentation in `docs/integrations/`.
+- Any new data field must identify: source, sensitivity, retention, local/server boundary and deletion behavior.
+- Never log sensitive financial payloads.
+- Use migrations for all persistent-schema changes.
+- Prefer small composable modules over large screens/services.
+- Every financial feature must include happy-path and edge-case tests.
+- Never silently change accounting semantics. In particular, transfers and debt repayments must not be counted as spending twice.

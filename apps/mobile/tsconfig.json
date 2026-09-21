@@ -1,0 +1,18 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@emi-coach/types": ["../../packages/types/src"],
+      "@emi-coach/financial-state": ["../../packages/financial-state/src"],
+      "@emi-coach/local-db": ["../../packages/local-db/src"],
+      "@emi-coach/provider-contracts": ["../../packages/provider-contracts/src"],
+      "@emi-coach/ui": ["../../packages/ui/src"],
+      "@emi-coach/analytics": ["../../packages/analytics/src"],
+      "@emi-coach/secure-storage": ["../../packages/secure-storage/src"],
+      "@emi-coach/notifications": ["../../packages/notifications/src"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["**/node_modules", "**/Pods"]
+}

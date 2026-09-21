@@ -1,0 +1,1681 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "vitest.config.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/vitest.config.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_vitest_config_ts",
+      "community": 12,
+      "norm_label": "vitest.config.ts"
+    },
+    {
+      "label": "models.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/models.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_models_py",
+      "community": 10,
+      "norm_label": "models.py"
+    },
+    {
+      "label": "No SQLAlchemy financial models. This module is scanned by the privacy CI check.",
+      "file_type": "rationale",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/models.py",
+      "source_location": "L1",
+      "id": "models_rationale_1",
+      "community": 10,
+      "norm_label": "no sqlalchemy financial models. this module is scanned by the privacy ci check."
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/__init__.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_init_py",
+      "community": 13,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "main.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/main.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_main_py",
+      "community": 14,
+      "norm_label": "main.py"
+    },
+    {
+      "label": "logging.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_logging_py",
+      "community": 3,
+      "norm_label": "logging.py"
+    },
+    {
+      "label": "load_forbidden()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L9",
+      "id": "logging_load_forbidden",
+      "community": 3,
+      "norm_label": "load_forbidden()"
+    },
+    {
+      "label": "RedactingFilter",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L21",
+      "id": "logging_redactingfilter",
+      "community": 3,
+      "norm_label": "redactingfilter"
+    },
+    {
+      "label": ".filter()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L22",
+      "id": "logging_redactingfilter_filter",
+      "community": 3,
+      "norm_label": ".filter()"
+    },
+    {
+      "label": "_redact()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L29",
+      "id": "logging_redact",
+      "community": 3,
+      "norm_label": "_redact()"
+    },
+    {
+      "label": "configure_logging()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L37",
+      "id": "logging_configure_logging",
+      "community": 3,
+      "norm_label": "configure_logging()"
+    },
+    {
+      "label": "db.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_db_py",
+      "community": 2,
+      "norm_label": "db.py"
+    },
+    {
+      "label": "Base",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
+      "source_location": "L7",
+      "id": "db_base",
+      "community": 0,
+      "norm_label": "base"
+    },
+    {
+      "label": "DeclarativeBase",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "declarativebase",
+      "community": 0,
+      "norm_label": "declarativebase"
+    },
+    {
+      "label": "check_database()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
+      "source_location": "L11",
+      "id": "db_check_database",
+      "community": 2,
+      "norm_label": "check_database()"
+    },
+    {
+      "label": "Server metadata only. No financial ledger tables.",
+      "file_type": "rationale",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
+      "source_location": "L8",
+      "id": "db_rationale_8",
+      "community": 0,
+      "norm_label": "server metadata only. no financial ledger tables."
+    },
+    {
+      "label": "config.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_config_py",
+      "community": 0,
+      "norm_label": "config.py"
+    },
+    {
+      "label": "Settings",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py",
+      "source_location": "L6",
+      "id": "config_settings",
+      "community": 0,
+      "norm_label": "settings"
+    },
+    {
+      "label": "BaseSettings",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basesettings",
+      "community": 0,
+      "norm_label": "basesettings"
+    },
+    {
+      "label": "get_settings()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py",
+      "source_location": "L15",
+      "id": "config_get_settings",
+      "community": 0,
+      "norm_label": "get_settings()"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/__init__.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_init_py",
+      "community": 15,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "health.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_api_health_py",
+      "community": 2,
+      "norm_label": "health.py"
+    },
+    {
+      "label": "HealthResponse",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L10",
+      "id": "health_healthresponse",
+      "community": 2,
+      "norm_label": "healthresponse"
+    },
+    {
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basemodel",
+      "community": 2,
+      "norm_label": "basemodel"
+    },
+    {
+      "label": "ReadyResponse",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L14",
+      "id": "health_readyresponse",
+      "community": 2,
+      "norm_label": "readyresponse"
+    },
+    {
+      "label": "health()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L20",
+      "id": "health_health",
+      "community": 2,
+      "norm_label": "health()"
+    },
+    {
+      "label": "ready()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L25",
+      "id": "health_ready",
+      "community": 2,
+      "norm_label": "ready()"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/__init__.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_api_init_py",
+      "community": 16,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "test_health.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/tests/test_health.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_tests_test_health_py",
+      "community": 5,
+      "norm_label": "test_health.py"
+    },
+    {
+      "label": "test_health()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/tests/test_health.py",
+      "source_location": "L13",
+      "id": "test_health_test_health",
+      "community": 5,
+      "norm_label": "test_health()"
+    },
+    {
+      "label": "test_ready_skips_postgres_in_dev()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/tests/test_health.py",
+      "source_location": "L19",
+      "id": "test_health_test_ready_skips_postgres_in_dev",
+      "community": 5,
+      "norm_label": "test_ready_skips_postgres_in_dev()"
+    },
+    {
+      "label": "test_health_schema_has_no_ledger_fields()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/tests/test_health.py",
+      "source_location": "L27",
+      "id": "test_health_test_health_schema_has_no_ledger_fields",
+      "community": 5,
+      "norm_label": "test_health_schema_has_no_ledger_fields()"
+    },
+    {
+      "label": "env.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_alembic_env_py",
+      "community": 0,
+      "norm_label": "env.py"
+    },
+    {
+      "label": "run_migrations_offline()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py",
+      "source_location": "L19",
+      "id": "env_run_migrations_offline",
+      "community": 0,
+      "norm_label": "run_migrations_offline()"
+    },
+    {
+      "label": "run_migrations_online()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py",
+      "source_location": "L30",
+      "id": "env_run_migrations_online",
+      "community": 0,
+      "norm_label": "run_migrations_online()"
+    },
+    {
+      "label": "Alembic env. No financial ledger models exist in Phase 1.",
+      "file_type": "rationale",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py",
+      "source_location": "L1",
+      "id": "env_rationale_1",
+      "community": 0,
+      "norm_label": "alembic env. no financial ledger models exist in phase 1."
+    },
+    {
+      "label": "write_adrs.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/write_adrs.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_write_adrs_py",
+      "community": 17,
+      "norm_label": "write_adrs.py"
+    },
+    {
+      "label": "privacy_scan_backend.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/privacy_scan_backend.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_privacy_scan_backend_py",
+      "community": 18,
+      "norm_label": "privacy_scan_backend.py"
+    },
+    {
+      "label": "privacy-scan.mjs",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/privacy-scan.mjs",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_privacy_scan_mjs",
+      "community": 8,
+      "norm_label": "privacy-scan.mjs"
+    },
+    {
+      "label": "walk()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/privacy-scan.mjs",
+      "source_location": "L14",
+      "id": "privacy_scan_walk",
+      "community": 8,
+      "norm_label": "walk()"
+    },
+    {
+      "label": "identifier()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/privacy-scan.mjs",
+      "source_location": "L23",
+      "id": "privacy_scan_identifier",
+      "community": 8,
+      "norm_label": "identifier()"
+    },
+    {
+      "label": "scaffold_packages.py",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/scaffold_packages.py",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_scaffold_packages_py",
+      "community": 6,
+      "norm_label": "scaffold_packages.py"
+    },
+    {
+      "label": "pkg_json()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/scaffold_packages.py",
+      "source_location": "L196",
+      "id": "scaffold_packages_pkg_json",
+      "community": 6,
+      "norm_label": "pkg_json()"
+    },
+    {
+      "label": "test_src()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/scaffold_packages.py",
+      "source_location": "L232",
+      "id": "scaffold_packages_test_src",
+      "community": 6,
+      "norm_label": "test_src()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/scaffold_packages.py",
+      "source_location": "L244",
+      "id": "scaffold_packages_main",
+      "community": 6,
+      "norm_label": "main()"
+    },
+    {
+      "label": "typecheck-packages.mjs",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/typecheck-packages.mjs",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_typecheck_packages_mjs",
+      "community": 19,
+      "norm_label": "typecheck-packages.mjs"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/ui/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_ui_src_index_test_ts",
+      "community": 20,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/ui/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_ui_src_index_ts",
+      "community": 21,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/cashflow-engine/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_cashflow_engine_src_index_test_ts",
+      "community": 22,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/cashflow-engine/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_cashflow_engine_src_index_ts",
+      "community": 23,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/types/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_types_src_index_test_ts",
+      "community": 24,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/types/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_types_src_index_ts",
+      "community": 25,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/debt-coach-engine/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_debt_coach_engine_src_index_test_ts",
+      "community": 26,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/debt-coach-engine/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_debt_coach_engine_src_index_ts",
+      "community": 27,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/financial-state/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_financial_state_src_index_test_ts",
+      "community": 28,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/financial-state/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_financial_state_src_index_ts",
+      "community": 4,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "buildFinancialState()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/financial-state/src/index.ts",
+      "source_location": "L17",
+      "id": "index_buildfinancialstate",
+      "community": 4,
+      "norm_label": "buildfinancialstate()"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/finance-core/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_finance_core_src_index_test_ts",
+      "community": 29,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/finance-core/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_finance_core_src_index_ts",
+      "community": 30,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/contracts/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_contracts_src_index_test_ts",
+      "community": 31,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/contracts/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_contracts_src_index_ts",
+      "community": 32,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/transaction-engine/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_transaction_engine_src_index_test_ts",
+      "community": 33,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/transaction-engine/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_transaction_engine_src_index_ts",
+      "community": 34,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/local-db/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_local_db_src_index_test_ts",
+      "community": 35,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/local-db/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_local_db_src_index_ts",
+      "community": 4,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "getSqlCipherPlaceholder()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/local-db/src/index.ts",
+      "source_location": "L9",
+      "id": "index_getsqlcipherplaceholder",
+      "community": 4,
+      "norm_label": "getsqlcipherplaceholder()"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/amortization-engine/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_amortization_engine_src_index_test_ts",
+      "community": 36,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/amortization-engine/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_amortization_engine_src_index_ts",
+      "community": 37,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/provider-contracts/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_provider_contracts_src_index_test_ts",
+      "community": 38,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/provider-contracts/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_provider_contracts_src_index_ts",
+      "community": 39,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/secure-storage/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_secure_storage_src_index_test_ts",
+      "community": 40,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/secure-storage/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_secure_storage_src_index_ts",
+      "community": 41,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/notifications/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_notifications_src_index_test_ts",
+      "community": 42,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/notifications/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_notifications_src_index_ts",
+      "community": 43,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/credit-engine/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_credit_engine_src_index_test_ts",
+      "community": 44,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/credit-engine/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_credit_engine_src_index_ts",
+      "community": 45,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "index.test.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/analytics/src/index.test.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_analytics_src_index_test_ts",
+      "community": 46,
+      "norm_label": "index.test.ts"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/analytics/src/index.ts",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_analytics_src_index_ts",
+      "community": 47,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "App.tsx",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/App.tsx",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_app_tsx",
+      "community": 11,
+      "norm_label": "app.tsx"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/App.tsx",
+      "source_location": "L3",
+      "id": "app_app",
+      "community": 11,
+      "norm_label": "app()"
+    },
+    {
+      "label": "jest.config.js",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/jest.config.js",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_jest_config_js",
+      "community": 48,
+      "norm_label": "jest.config.js"
+    },
+    {
+      "label": "index.js",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/index.js",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_index_js",
+      "community": 49,
+      "norm_label": "index.js"
+    },
+    {
+      "label": "metro.config.js",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/metro.config.js",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_metro_config_js",
+      "community": 50,
+      "norm_label": "metro.config.js"
+    },
+    {
+      "label": "babel.config.js",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/babel.config.js",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_babel_config_js",
+      "community": 51,
+      "norm_label": "babel.config.js"
+    },
+    {
+      "label": "AppDelegate.swift",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_ios_emicoach_appdelegate_swift",
+      "community": 1,
+      "norm_label": "appdelegate.swift"
+    },
+    {
+      "label": "AppDelegate",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L6",
+      "id": "appdelegate_appdelegate",
+      "community": 1,
+      "norm_label": "appdelegate"
+    },
+    {
+      "label": "UIResponder",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "uiresponder",
+      "community": 1,
+      "norm_label": "uiresponder"
+    },
+    {
+      "label": "UIApplicationDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "uiapplicationdelegate",
+      "community": 1,
+      "norm_label": "uiapplicationdelegate"
+    },
+    {
+      "label": ".application()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L13",
+      "id": "appdelegate_appdelegate_application",
+      "community": 1,
+      "norm_label": ".application()"
+    },
+    {
+      "label": "ReactNativeDelegate",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L36",
+      "id": "appdelegate_reactnativedelegate",
+      "community": 1,
+      "norm_label": "reactnativedelegate"
+    },
+    {
+      "label": "RCTDefaultReactNativeFactoryDelegate",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "rctdefaultreactnativefactorydelegate",
+      "community": 1,
+      "norm_label": "rctdefaultreactnativefactorydelegate"
+    },
+    {
+      "label": ".sourceURL()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L37",
+      "id": "appdelegate_reactnativedelegate_sourceurl",
+      "community": 1,
+      "norm_label": ".sourceurl()"
+    },
+    {
+      "label": ".bundleURL()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L41",
+      "id": "appdelegate_reactnativedelegate_bundleurl",
+      "community": 1,
+      "norm_label": ".bundleurl()"
+    },
+    {
+      "label": "App.test.tsx",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/__tests__/App.test.tsx",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_tests_app_test_tsx",
+      "community": 52,
+      "norm_label": "app.test.tsx"
+    },
+    {
+      "label": "MainActivity.kt",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainActivity.kt",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_android_app_src_main_java_com_emicoach_app_mainactivity_kt",
+      "community": 7,
+      "norm_label": "mainactivity.kt"
+    },
+    {
+      "label": "MainActivity",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainActivity.kt",
+      "source_location": "L8",
+      "id": "mainactivity_mainactivity",
+      "community": 7,
+      "norm_label": "mainactivity"
+    },
+    {
+      "label": ".getMainComponentName()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainActivity.kt",
+      "source_location": "L14",
+      "id": "mainactivity_mainactivity_getmaincomponentname",
+      "community": 7,
+      "norm_label": ".getmaincomponentname()"
+    },
+    {
+      "label": ".createReactActivityDelegate()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainActivity.kt",
+      "source_location": "L20",
+      "id": "mainactivity_mainactivity_createreactactivitydelegate",
+      "community": 7,
+      "norm_label": ".createreactactivitydelegate()"
+    },
+    {
+      "label": "MainApplication.kt",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainApplication.kt",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_android_app_src_main_java_com_emicoach_app_mainapplication_kt",
+      "community": 9,
+      "norm_label": "mainapplication.kt"
+    },
+    {
+      "label": "MainApplication",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainApplication.kt",
+      "source_location": "L10",
+      "id": "mainapplication_mainapplication",
+      "community": 9,
+      "norm_label": "mainapplication"
+    },
+    {
+      "label": ".onCreate()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainApplication.kt",
+      "source_location": "L23",
+      "id": "mainapplication_mainapplication_oncreate",
+      "community": 9,
+      "norm_label": ".oncreate()"
+    },
+    {
+      "label": "BootstrapScreen.tsx",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/screens/BootstrapScreen.tsx",
+      "source_location": "L1",
+      "id": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_src_screens_bootstrapscreen_tsx",
+      "community": 4,
+      "norm_label": "bootstrapscreen.tsx"
+    },
+    {
+      "label": "BootstrapScreen()",
+      "file_type": "code",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/screens/BootstrapScreen.tsx",
+      "source_location": "L10",
+      "id": "bootstrapscreen_bootstrapscreen",
+      "community": 4,
+      "norm_label": "bootstrapscreen()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/models.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_src": "models_rationale_1",
+      "_tgt": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_models_py",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_models_py",
+      "target": "models_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_logging_py",
+      "_tgt": "logging_load_forbidden",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_logging_py",
+      "target": "logging_load_forbidden",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_logging_py",
+      "_tgt": "logging_redactingfilter",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_logging_py",
+      "target": "logging_redactingfilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_logging_py",
+      "_tgt": "logging_redact",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_logging_py",
+      "target": "logging_redact",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_logging_py",
+      "_tgt": "logging_configure_logging",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_logging_py",
+      "target": "logging_configure_logging",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_src": "logging_redactingfilter",
+      "_tgt": "logging_redactingfilter_filter",
+      "source": "logging_redactingfilter",
+      "target": "logging_redactingfilter_filter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_src": "logging_configure_logging",
+      "_tgt": "logging_redactingfilter",
+      "source": "logging_redactingfilter",
+      "target": "logging_configure_logging",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/logging.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_src": "logging_redactingfilter_filter",
+      "_tgt": "logging_redact",
+      "source": "logging_redactingfilter_filter",
+      "target": "logging_redact",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_db_py",
+      "_tgt": "db_base",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_db_py",
+      "target": "db_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_db_py",
+      "_tgt": "db_check_database",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_db_py",
+      "target": "db_check_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_src": "db_base",
+      "_tgt": "declarativebase",
+      "source": "db_base",
+      "target": "declarativebase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_src": "db_rationale_8",
+      "_tgt": "db_base",
+      "source": "db_base",
+      "target": "db_rationale_8",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
+      "source_location": "L4",
+      "weight": 0.8,
+      "_src": "db_base",
+      "_tgt": "config_settings",
+      "source": "db_base",
+      "target": "config_settings",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "_src": "env_rationale_1",
+      "_tgt": "db_base",
+      "source": "db_base",
+      "target": "env_rationale_1",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_src": "health_ready",
+      "_tgt": "db_check_database",
+      "source": "db_check_database",
+      "target": "health_ready"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
+      "source_location": "L4",
+      "weight": 0.8,
+      "_src": "db_rationale_8",
+      "_tgt": "config_settings",
+      "source": "db_rationale_8",
+      "target": "config_settings",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_config_py",
+      "_tgt": "config_settings",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_config_py",
+      "target": "config_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_config_py",
+      "_tgt": "config_get_settings",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_core_config_py",
+      "target": "config_get_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "config_settings",
+      "_tgt": "basesettings",
+      "source": "config_settings",
+      "target": "basesettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_src": "config_get_settings",
+      "_tgt": "config_settings",
+      "source": "config_settings",
+      "target": "config_get_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_src": "health_ready",
+      "_tgt": "config_get_settings",
+      "source": "config_get_settings",
+      "target": "health_ready"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_api_health_py",
+      "_tgt": "health_healthresponse",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_api_health_py",
+      "target": "health_healthresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_api_health_py",
+      "_tgt": "health_readyresponse",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_api_health_py",
+      "target": "health_readyresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_api_health_py",
+      "_tgt": "health_health",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_api_health_py",
+      "target": "health_health",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_api_health_py",
+      "_tgt": "health_ready",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_app_api_health_py",
+      "target": "health_ready",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "health_healthresponse",
+      "_tgt": "basemodel",
+      "source": "health_healthresponse",
+      "target": "basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_src": "health_health",
+      "_tgt": "health_healthresponse",
+      "source": "health_healthresponse",
+      "target": "health_health",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "health_readyresponse",
+      "_tgt": "basemodel",
+      "source": "basemodel",
+      "target": "health_readyresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_src": "health_ready",
+      "_tgt": "health_readyresponse",
+      "source": "health_readyresponse",
+      "target": "health_ready",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/tests/test_health.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_tests_test_health_py",
+      "_tgt": "test_health_test_health",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_tests_test_health_py",
+      "target": "test_health_test_health",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/tests/test_health.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_tests_test_health_py",
+      "_tgt": "test_health_test_ready_skips_postgres_in_dev",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_tests_test_health_py",
+      "target": "test_health_test_ready_skips_postgres_in_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/tests/test_health.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_tests_test_health_py",
+      "_tgt": "test_health_test_health_schema_has_no_ledger_fields",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_tests_test_health_py",
+      "target": "test_health_test_health_schema_has_no_ledger_fields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_alembic_env_py",
+      "_tgt": "env_run_migrations_offline",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_alembic_env_py",
+      "target": "env_run_migrations_offline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_alembic_env_py",
+      "_tgt": "env_run_migrations_online",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_alembic_env_py",
+      "target": "env_run_migrations_online",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_src": "env_rationale_1",
+      "_tgt": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_alembic_env_py",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_backend_alembic_env_py",
+      "target": "env_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/privacy-scan.mjs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_privacy_scan_mjs",
+      "_tgt": "privacy_scan_walk",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_privacy_scan_mjs",
+      "target": "privacy_scan_walk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/privacy-scan.mjs",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_privacy_scan_mjs",
+      "_tgt": "privacy_scan_identifier",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_privacy_scan_mjs",
+      "target": "privacy_scan_identifier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/scaffold_packages.py",
+      "source_location": "L196",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_scaffold_packages_py",
+      "_tgt": "scaffold_packages_pkg_json",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_scaffold_packages_py",
+      "target": "scaffold_packages_pkg_json",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/scaffold_packages.py",
+      "source_location": "L232",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_scaffold_packages_py",
+      "_tgt": "scaffold_packages_test_src",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_scaffold_packages_py",
+      "target": "scaffold_packages_test_src",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/scaffold_packages.py",
+      "source_location": "L244",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_scaffold_packages_py",
+      "_tgt": "scaffold_packages_main",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_scripts_scaffold_packages_py",
+      "target": "scaffold_packages_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/scripts/scaffold_packages.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "_src": "scaffold_packages_main",
+      "_tgt": "scaffold_packages_pkg_json",
+      "source": "scaffold_packages_pkg_json",
+      "target": "scaffold_packages_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/financial-state/src/index.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_financial_state_src_index_ts",
+      "_tgt": "index_buildfinancialstate",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_financial_state_src_index_ts",
+      "target": "index_buildfinancialstate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/screens/BootstrapScreen.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_src": "bootstrapscreen_bootstrapscreen",
+      "_tgt": "index_buildfinancialstate",
+      "source": "index_buildfinancialstate",
+      "target": "bootstrapscreen_bootstrapscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/packages/local-db/src/index.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_local_db_src_index_ts",
+      "_tgt": "index_getsqlcipherplaceholder",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_packages_local_db_src_index_ts",
+      "target": "index_getsqlcipherplaceholder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/screens/BootstrapScreen.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_src": "bootstrapscreen_bootstrapscreen",
+      "_tgt": "index_getsqlcipherplaceholder",
+      "source": "index_getsqlcipherplaceholder",
+      "target": "bootstrapscreen_bootstrapscreen"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/App.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_app_tsx",
+      "_tgt": "app_app",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_app_tsx",
+      "target": "app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_ios_emicoach_appdelegate_swift",
+      "_tgt": "appdelegate_appdelegate",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_ios_emicoach_appdelegate_swift",
+      "target": "appdelegate_appdelegate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_ios_emicoach_appdelegate_swift",
+      "_tgt": "appdelegate_reactnativedelegate",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_ios_emicoach_appdelegate_swift",
+      "target": "appdelegate_reactnativedelegate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "appdelegate_appdelegate",
+      "_tgt": "uiresponder",
+      "source": "appdelegate_appdelegate",
+      "target": "uiresponder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "appdelegate_appdelegate",
+      "_tgt": "uiapplicationdelegate",
+      "source": "appdelegate_appdelegate",
+      "target": "uiapplicationdelegate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_src": "appdelegate_appdelegate",
+      "_tgt": "appdelegate_appdelegate_application",
+      "source": "appdelegate_appdelegate",
+      "target": "appdelegate_appdelegate_application",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "appdelegate_appdelegate_application",
+      "_tgt": "appdelegate_reactnativedelegate",
+      "source": "appdelegate_appdelegate_application",
+      "target": "appdelegate_reactnativedelegate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_src": "appdelegate_reactnativedelegate",
+      "_tgt": "rctdefaultreactnativefactorydelegate",
+      "source": "appdelegate_reactnativedelegate",
+      "target": "rctdefaultreactnativefactorydelegate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_src": "appdelegate_reactnativedelegate",
+      "_tgt": "appdelegate_reactnativedelegate_sourceurl",
+      "source": "appdelegate_reactnativedelegate",
+      "target": "appdelegate_reactnativedelegate_sourceurl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_src": "appdelegate_reactnativedelegate",
+      "_tgt": "appdelegate_reactnativedelegate_bundleurl",
+      "source": "appdelegate_reactnativedelegate",
+      "target": "appdelegate_reactnativedelegate_bundleurl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/ios/EmiCoach/AppDelegate.swift",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_src": "appdelegate_reactnativedelegate_sourceurl",
+      "_tgt": "appdelegate_reactnativedelegate_bundleurl",
+      "source": "appdelegate_reactnativedelegate_sourceurl",
+      "target": "appdelegate_reactnativedelegate_bundleurl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainActivity.kt",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_android_app_src_main_java_com_emicoach_app_mainactivity_kt",
+      "_tgt": "mainactivity_mainactivity",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_android_app_src_main_java_com_emicoach_app_mainactivity_kt",
+      "target": "mainactivity_mainactivity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainActivity.kt",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "mainactivity_mainactivity",
+      "_tgt": "mainactivity_mainactivity_getmaincomponentname",
+      "source": "mainactivity_mainactivity",
+      "target": "mainactivity_mainactivity_getmaincomponentname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainActivity.kt",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_src": "mainactivity_mainactivity",
+      "_tgt": "mainactivity_mainactivity_createreactactivitydelegate",
+      "source": "mainactivity_mainactivity",
+      "target": "mainactivity_mainactivity_createreactactivitydelegate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainApplication.kt",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_android_app_src_main_java_com_emicoach_app_mainapplication_kt",
+      "_tgt": "mainapplication_mainapplication",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_android_app_src_main_java_com_emicoach_app_mainapplication_kt",
+      "target": "mainapplication_mainapplication",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/android/app/src/main/java/com/emicoach/app/MainApplication.kt",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_src": "mainapplication_mainapplication",
+      "_tgt": "mainapplication_mainapplication_oncreate",
+      "source": "mainapplication_mainapplication",
+      "target": "mainapplication_mainapplication_oncreate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/screens/BootstrapScreen.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_src_screens_bootstrapscreen_tsx",
+      "_tgt": "bootstrapscreen_bootstrapscreen",
+      "source": "users_tridibdawn_documents_emi_coach_application_emi_coach_apps_mobile_src_screens_bootstrapscreen_tsx",
+      "target": "bootstrapscreen_bootstrapscreen",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@emi-coach/financial-state",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --config ../../vitest.config.ts"
+  },
+  "dependencies": {
+    "@emi-coach/amortization-engine": "workspace:*",
+    "@emi-coach/cashflow-engine": "workspace:*",
+    "@emi-coach/credit-engine": "workspace:*",
+    "@emi-coach/debt-coach-engine": "workspace:*",
+    "@emi-coach/finance-core": "workspace:*",
+    "@emi-coach/transaction-engine": "workspace:*",
+    "@emi-coach/types": "workspace:*"
+  }
+}

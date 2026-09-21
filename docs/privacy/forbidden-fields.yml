@@ -1,0 +1,20 @@
+# Machine-readable names that must never appear in backend models,
+# API schemas, or analytics event definitions.
+forbidden_fields:
+  - transactions
+  - merchant
+  - salary
+  - loan_balance
+  - loan_outstanding
+  - statement_pdf
+  - cibil_report
+  - pan
+  - full_pan
+  - cvv
+  - upi_pin
+  - bank_password
+  - netbanking_password
+  - debit_pin
+  - atm_pin
+  - card_pin
+  - full_account_number

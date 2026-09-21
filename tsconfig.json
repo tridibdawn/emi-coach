@@ -1,0 +1,20 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/types" },
+    { "path": "packages/finance-core" },
+    { "path": "packages/amortization-engine" },
+    { "path": "packages/transaction-engine" },
+    { "path": "packages/cashflow-engine" },
+    { "path": "packages/debt-coach-engine" },
+    { "path": "packages/credit-engine" },
+    { "path": "packages/financial-state" },
+    { "path": "packages/provider-contracts" },
+    { "path": "packages/local-db" },
+    { "path": "packages/secure-storage" },
+    { "path": "packages/notifications" },
+    { "path": "packages/analytics" },
+    { "path": "packages/contracts" },
+    { "path": "packages/ui" }
+  ]
+}

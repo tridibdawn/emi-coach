@@ -1,0 +1,28 @@
+name: ios
+on:
+  workflow_dispatch:
+  # macOS GitHub-hosted runners are required. This workflow is not part of the
+  # default PR gate until a macOS runner is available on the repository.
+  # Local command (macOS):
+  #   cd apps/mobile/ios && bundle install && bundle exec pod install
+  #   cd .. && yarn ios
+  #   # or: xcodebuild -workspace ios/EmiCoach.xcworkspace -scheme EmiCoach -configuration Debug -sdk iphonesimulator
+
+jobs:
+  ios-debug:
+    name: iOS simulator debug (macOS required)
+    runs-on: macos-latest
+    if: ${{ vars.ENABLE_IOS_CI == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.13"
+      - run: corepack enable
+      - run: yarn install --immutable
+      - name: CocoaPods
+        working-directory: apps/mobile/ios
+        run: bundle install && bundle exec pod install
+      - name: Build simulator
+        working-directory: apps/mobile
+        run: yarn react-native build-ios --mode Debug --simulator "iPhone 16"

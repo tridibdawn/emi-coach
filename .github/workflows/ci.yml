@@ -1,0 +1,74 @@
+name: ci
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  typescript:
+    name: TypeScript lint, typecheck, tests, boundaries
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.13"
+      - run: corepack enable
+      - run: yarn install --immutable
+      - run: yarn lint
+      - run: yarn typecheck
+      - run: yarn test:packages
+      - run: yarn boundaries
+
+  privacy:
+    name: Privacy forbidden-field scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.13"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: corepack enable
+      - run: yarn install --immutable
+      - run: yarn privacy-scan
+
+  backend:
+    name: Backend lint, typecheck, tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m venv backend/.venv
+      - run: backend/.venv/bin/pip install -e "./backend[dev]"
+      - run: backend/.venv/bin/ruff check app
+        working-directory: backend
+      - run: backend/.venv/bin/mypy --config-file pyproject.toml app
+        working-directory: backend
+      - run: backend/.venv/bin/pytest -q
+        working-directory: backend
+        env:
+          PYTHONPATH: .
+
+  android:
+    name: Android debug assemble
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.13"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: android-actions/setup-android@v3
+      - run: corepack enable
+      - run: yarn install --immutable
+      - name: Assemble debug
+        working-directory: apps/mobile/android
+        run: ./gradlew assembleDebug --no-daemon
