@@ -1,7 +1,7 @@
 # Graph Report - /Users/tridibdawn/Documents/EMI Coach Application/emi-coach  (2026-09-21)
 
 ## Corpus Check
-- 57 files · ~18,880 words
+- 57 files · ~18,898 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
