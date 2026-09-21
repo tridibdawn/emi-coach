@@ -56,16 +56,23 @@ One active native SQLite at link time = OP-SQLite + SQLCipher. Scanner (`yarn sq
 
 ## Gate matrix
 
-| Gate | CI / local | Current |
+| Gate | CI / local | Current (2026-09-21) |
 |---|---|---|
-| BUILD COMPATIBILITY (Android) | `assembleDebug` | NOT RUN locally; CI job unchanged |
-| BUILD COMPATIBILITY (iOS) | macOS `pod install` + simulator build | NOT RUN (workflow gated by `ENABLE_IOS_CI`) |
-| RUNTIME ENCRYPTION | Native spike UI | NOT RUN |
-| MIGRATION | Native spike UI | NOT RUN |
-| PERSISTENCE | Native spike UI | NOT RUN |
+| BUILD COMPATIBILITY (Android) | CI `assembleDebug` (`.github/workflows/ci.yml`) | NOT RUN locally; confirm via CI **Android debug assemble** job |
+| BUILD COMPATIBILITY (iOS) | Gated `ios.yml` when `ENABLE_IOS_CI=true`; `build-ios --mode Debug --extra-params "-sdk iphonesimulator"` | Local FAIL (`xcodebuild` plug-in); CI NOT RUN (gated) |
+| RUNTIME ENCRYPTION | Local `__DEV__` spike only | NOT RUN |
+| MIGRATION | Local `__DEV__` spike only | NOT RUN |
+| PERSISTENCE | Local `__DEV__` spike only | NOT RUN |
 | SQLITE CONFLICT CHECK | `yarn sqlite-conflicts` | PASS |
 
-**Phase 1B PASS** requires all five runtime/build/conflict gates PASS. CI **must not** treat `assembleDebug` alone as runtime encryption PASS.
+**Overall Phase 1B: NOT YET PASS.**
+
+**Phase 1B PASS** requires all five runtime/build/conflict gates PASS. CI **must not** treat `assembleDebug` or `build-ios` alone as RUNTIME ENCRYPTION / MIGRATION / PERSISTENCE PASS.
+
+### CI vs local spike
+
+- **CI proves:** native compile with SQLCipher linked (Android always; iOS when `ENABLE_IOS_CI=true`).
+- **Local spike proves:** wrong-key authenticated-read failure, migration 001, close/reopen persistence — see `docs/integrations/phase-1b-sqlcipher-spike.md` runbook.
 
 ## Consequences
 

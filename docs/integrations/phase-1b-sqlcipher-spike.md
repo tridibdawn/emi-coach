@@ -63,28 +63,60 @@ The authenticated-read failure is the encryption correctness gate. File-exists c
 
 ### Current results
 
-Last pre-verification run: 2026-09-21.
+Last updated: 2026-09-21 (pre-verification + CI/spike runbook).
 
-| Gate | Status | Notes |
+| Gate | Status | Evidence source | Notes |
+|---|---|---|---|
+| BUILD COMPATIBILITY (Android) | **NOT RUN** locally | CI `.github/workflows/ci.yml` `assembleDebug` | No JDK / `ANDROID_HOME` on dev machine; confirm via `gh run list --workflow=ci.yml` → **Android debug assemble** job. Success = compile only, not runtime encryption. |
+| BUILD COMPATIBILITY (iOS) | **FAIL** locally / **NOT RUN** in CI | Local `pod install` + `xcodebuild`; gated `ios.yml` | Local: `pod install` OK with `[OP-SQLITE] using SQLCipher`; `xcodebuild` exit 70 (`IDESimulatorFoundation` plug-in). CI: workflow requires `ENABLE_IOS_CI=true` (not enabled). Fixed command: `yarn react-native build-ios --mode Debug --extra-params "-sdk iphonesimulator"`. |
+| RUNTIME ENCRYPTION | **NOT RUN** | Local `__DEV__` spike only | Requires emulator/device; see runbook below |
+| MIGRATION | **NOT RUN** | Local `__DEV__` spike only | Same spike run |
+| PERSISTENCE | **NOT RUN** | Local `__DEV__` spike only | Same spike run |
+| SQLITE CONFLICT CHECK | **PASS** | `yarn sqlite-conflicts` | 2026-09-21 |
+
+**Overall Phase 1B: NOT YET PASS** — RUNTIME ENCRYPTION, MIGRATION, and PERSISTENCE remain NOT RUN; Android BUILD not confirmed locally; iOS BUILD failed locally and CI iOS is gated.
+
+Automated JS/Python gates (lint, typecheck, tests, boundaries, privacy, `op-sqlite-config`, `sqlcipher-spike-security`, backend): **PASS** (2026-09-21). These do **not** prove SQLCipher runtime encryption.
+
+## CI vs local evidence matrix
+
+| What | CI can prove | Local spike required |
 |---|---|---|
-| BUILD COMPATIBILITY (Android) | **NOT RUN** | No JDK / `ANDROID_HOME` on this machine; use CI `assembleDebug` |
-| BUILD COMPATIBILITY (iOS) | **FAIL** | `pod install` succeeded with `[OP-SQLITE] using SQLCipher` from `apps/mobile/package.json`; `xcodebuild` failed (exit 70) — Xcode `IDESimulatorFoundation` plug-in load error; run `xcodebuild -runFirstLaunch` or repair Xcode locally |
-| RUNTIME ENCRYPTION | **NOT RUN** | Requires emulator/device + working native build |
-| MIGRATION | **NOT RUN** | Requires emulator/device |
-| PERSISTENCE | **NOT RUN** | Requires emulator/device |
-| SQLITE CONFLICT CHECK | **PASS** | `yarn sqlite-conflicts` (2026-09-21) |
+| Native compile (SQLCipher linked) | Android `assembleDebug`; iOS `build-ios` when `ENABLE_IOS_CI=true` | Optional local `assembleDebug` / `build-ios` |
+| Wrong-key authenticated read | No | Yes — `DevSqlCipherSpikeEntry` |
+| Migration 001 + `schema_migrations` | No | Yes |
+| Close/reopen persistence | No | Yes |
 
-Automated gates (lint, typecheck, tests, boundaries, privacy, `op-sqlite-config`, `sqlcipher-spike-security`, backend): **PASS** (2026-09-21). These do **not** prove SQLCipher runtime encryption.
+CI must **never** claim RUNTIME ENCRYPTION PASS from `assembleDebug` or `build-ios` alone.
 
-## Native runtime how-to
+## Local spike runbook (RUNTIME / MIGRATION / PERSISTENCE)
+
+### Entry points
+
+- **Debug:** [`apps/mobile/App.tsx`](../../apps/mobile/App.tsx) renders [`DevSqlCipherSpikeEntry`](../../apps/mobile/src/dev/sqlcipher-spike/DevSqlCipherSpikeEntry.tsx) when `__DEV__ === true`.
+- **Production/release:** `BootstrapScreen` only — spike UI is not bundled for production entry.
+- **No** permanent test button on `BootstrapScreen`.
+
+### Steps
 
 1. `yarn install` (applies OP-SQLite patch)
-2. Start Metro: `yarn workspace @emi-coach/mobile start`
-3. Run on device/emulator: `yarn workspace @emi-coach/mobile android` or `ios`
-4. In **Debug**, the app opens the **Phase 1B SQLCipher Spike** screen (`apps/mobile/src/dev/sqlcipher-spike/`)
-5. Tap **Run compatibility spike** and record RUNTIME / MIGRATION / PERSISTENCE + wrong-key open vs read messages
+2. Build and install on emulator/device (Android: SDK + `./gradlew assembleDebug` or `yarn workspace @emi-coach/mobile android`; iOS: repair Xcode if needed, then `cd apps/mobile && bundle install && bundle exec pod install --project-directory=ios`)
+3. Start Metro: `yarn workspace @emi-coach/mobile start`
+4. Launch Debug app on emulator/device
+5. Tap **Run compatibility spike** on the Phase 1B SQLCipher Spike screen
 
-Production/release builds do not expose the spike UI (`__DEV__` gate). No button was added to `BootstrapScreen`.
+### Evidence to record (copy into this table after each platform run)
+
+| Field | Expected |
+|---|---|
+| `isSQLCipher()` | `true` |
+| Wrong-key **open** | May return handle or throw — record exact message |
+| Wrong-key **authenticated read** (`SELECT sqlite_master`) | **Must fail** — `SQLITE_NOTADB` / “file is encrypted or is not a database” |
+| RUNTIME ENCRYPTION gate | PASS only if authenticated-read fails as above |
+| MIGRATION gate | PASS if migration 001 recorded in `schema_migrations` |
+| PERSISTENCE gate | PASS if reopen with correct key returns marker `phase1b-spike-v1` |
+
+Update the **Current results** table above after recording. Do not mark Phase 1B PASS until all five gates are PASS on both platforms as required by ADR-004.
 
 ## CI gates (Phase 1 preserved)
 
@@ -92,7 +124,8 @@ Production/release builds do not expose the spike UI (`__DEV__` gate). No button
 - `yarn boundaries` / `yarn privacy-scan`
 - `yarn sqlite-conflicts` / `yarn op-sqlite-config` / `yarn sqlcipher-spike-security`
 - Backend ruff/mypy/pytest
-- Android `assembleDebug` — **BUILD COMPATIBILITY only** (CI must not claim runtime SQLCipher PASS from assemble)
+- Android `assembleDebug` (`.github/workflows/ci.yml`) — **BUILD COMPATIBILITY only**
+- iOS `build-ios` (`.github/workflows/ios.yml`, `ENABLE_IOS_CI=true` only) — **BUILD COMPATIBILITY only**; uses `yarn react-native build-ios --mode Debug --extra-params "-sdk iphonesimulator"` (RN 0.87 CLI; no `--simulator` flag)
 
 ## Security
 

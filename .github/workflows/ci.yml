@@ -91,6 +91,8 @@ jobs:
           ./gradlew --version
           echo "$ANDROID_HOME"
           "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --list | grep -E 'platforms;android-37|build-tools;37.0.0|ndk;27.1.12297006|platform-tools' || true
+      # BUILD COMPATIBILITY only — proves native compile with SQLCipher linked.
+      # Do not treat assembleDebug success as RUNTIME ENCRYPTION / MIGRATION / PERSISTENCE PASS.
       - name: Assemble debug
         working-directory: apps/mobile/android
         run: |

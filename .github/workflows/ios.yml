@@ -4,9 +4,9 @@ on:
   # macOS GitHub-hosted runners are required. This workflow is not part of the
   # default PR gate until a macOS runner is available on the repository.
   # Local command (macOS):
-  #   cd apps/mobile/ios && bundle install && bundle exec pod install
-  #   cd .. && yarn ios
-  #   # or: xcodebuild -workspace ios/EmiCoach.xcworkspace -scheme EmiCoach -configuration Debug -sdk iphonesimulator
+  #   cd apps/mobile && bundle install && bundle exec pod install --project-directory=ios
+  #   yarn react-native build-ios --mode Debug --extra-params "-sdk iphonesimulator"
+  #   # build-ios sets -destination generic/platform=iOS Simulator in Debug; do not use run-ios --simulator
 
 jobs:
   ios-debug:
@@ -21,10 +21,10 @@ jobs:
       - run: corepack enable
       - run: yarn install --immutable
       - name: CocoaPods
-        working-directory: apps/mobile/ios
-        run: bundle install && bundle exec pod install
+        working-directory: apps/mobile
+        run: bundle install && bundle exec pod install --project-directory=ios
       - name: Build simulator (BUILD COMPATIBILITY only)
         working-directory: apps/mobile
-        run: yarn react-native build-ios --mode Debug --simulator "iPhone 16"
+        run: yarn react-native build-ios --mode Debug --extra-params "-sdk iphonesimulator"
       # RUNTIME ENCRYPTION / MIGRATION / PERSISTENCE require the __DEV__ spike UI on
       # a simulator or device — see docs/integrations/phase-1b-sqlcipher-spike.md.
