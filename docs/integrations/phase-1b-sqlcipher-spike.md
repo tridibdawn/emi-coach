@@ -63,14 +63,18 @@ The authenticated-read failure is the encryption correctness gate. File-exists c
 
 ### Current results
 
+Last pre-verification run: 2026-09-21.
+
 | Gate | Status | Notes |
 |---|---|---|
-| BUILD COMPATIBILITY (Android) | **NOT RUN** locally (no JDK/Android SDK in agent env) | CI `assembleDebug` is the build gate; success proves compile only |
-| BUILD COMPATIBILITY (iOS) | **NOT RUN** | macOS workflow (`ENABLE_IOS_CI=true`) or local `pod install` + simulator build |
-| RUNTIME ENCRYPTION | **NOT RUN** | Requires emulator/device |
+| BUILD COMPATIBILITY (Android) | **NOT RUN** | No JDK / `ANDROID_HOME` on this machine; use CI `assembleDebug` |
+| BUILD COMPATIBILITY (iOS) | **FAIL** | `pod install` succeeded with `[OP-SQLITE] using SQLCipher` from `apps/mobile/package.json`; `xcodebuild` failed (exit 70) — Xcode `IDESimulatorFoundation` plug-in load error; run `xcodebuild -runFirstLaunch` or repair Xcode locally |
+| RUNTIME ENCRYPTION | **NOT RUN** | Requires emulator/device + working native build |
 | MIGRATION | **NOT RUN** | Requires emulator/device |
 | PERSISTENCE | **NOT RUN** | Requires emulator/device |
-| SQLITE CONFLICT CHECK | **PASS** | `yarn sqlite-conflicts` |
+| SQLITE CONFLICT CHECK | **PASS** | `yarn sqlite-conflicts` (2026-09-21) |
+
+Automated gates (lint, typecheck, tests, boundaries, privacy, `op-sqlite-config`, `sqlcipher-spike-security`, backend): **PASS** (2026-09-21). These do **not** prove SQLCipher runtime encryption.
 
 ## Native runtime how-to
 
