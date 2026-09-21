@@ -44,14 +44,36 @@ yarn install
 yarn lint
 yarn typecheck
 yarn test:packages
-yarn workspace @emi-coach/mobile test
+yarn workspace @emi-coach/mobile test --watchAll=false
 yarn boundaries
 yarn privacy-scan
 ```
 
+## CI gate (GitHub Actions)
+
+Workflow: [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
+
+| Job | Checks |
+|-----|--------|
+| TypeScript | lint, typecheck, package tests (Vitest), mobile Jest, dependency boundaries |
+| Privacy | forbidden-field scan (TS + Python) |
+| Backend | ruff, mypy, pytest |
+| Android | `assembleDebug` with pinned SDK components |
+
+Pinned in CI: Node **22.13**, Yarn **4.10.3**, React Native **0.87.1**, JDK **17**.
+
 ### Android
 
-Requires JDK 17 and a local Android SDK (`ANDROID_HOME` or `apps/mobile/android/local.properties`). This machine did not have an SDK during Phase 1; GitHub Actions installs one via `android-actions/setup-android`.
+Requires JDK 17 and a local Android SDK (`ANDROID_HOME` or `apps/mobile/android/local.properties`).
+
+CI preinstalls and verifies the SDK components pinned in `apps/mobile/android/build.gradle`:
+
+- `platforms/android-37` (installs `platforms;android-37.0` and symlinks `android-37` when Google publishes only the minor package)
+- `build-tools/37.0.0`
+- `ndk/27.1.12297006`
+- `platform-tools`
+
+AGP may auto-download missing SDK packages when licenses are accepted; CI still preinstalls and asserts these paths so runner-image drift cannot pass unnoticed. CI scripts: `scripts/ci-install-android-sdk.sh`, `scripts/ci-verify-android-sdk.sh`.
 
 ```bash
 export JAVA_HOME="/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home"

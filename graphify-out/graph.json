@@ -26,9 +26,9 @@
       "file_type": "rationale",
       "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/models.py",
       "source_location": "L1",
-      "id": "models_rationale_1",
       "community": 10,
-      "norm_label": "no sqlalchemy financial models. this module is scanned by the privacy ci check."
+      "norm_label": "no sqlalchemy financial models. this module is scanned by the privacy ci check.",
+      "id": "models_rationale_1"
     },
     {
       "label": "__init__.py",
@@ -143,9 +143,9 @@
       "file_type": "rationale",
       "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py",
       "source_location": "L8",
-      "id": "db_rationale_8",
       "community": 0,
-      "norm_label": "server metadata only. no financial ledger tables."
+      "norm_label": "server metadata only. no financial ledger tables.",
+      "id": "db_rationale_8"
     },
     {
       "label": "config.py",
@@ -323,9 +323,9 @@
       "file_type": "rationale",
       "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py",
       "source_location": "L1",
-      "id": "env_rationale_1",
       "community": 0,
-      "norm_label": "alembic env. no financial ledger models exist in phase 1."
+      "norm_label": "alembic env. no financial ledger models exist in phase 1.",
+      "id": "env_rationale_1"
     },
     {
       "label": "write_adrs.py",
@@ -1084,9 +1084,9 @@
       "weight": 0.8,
       "_src": "db_base",
       "_tgt": "config_settings",
+      "confidence_score": 0.5,
       "source": "db_base",
-      "target": "config_settings",
-      "confidence_score": 0.5
+      "target": "config_settings"
     },
     {
       "relation": "uses",
@@ -1094,11 +1094,11 @@
       "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py",
       "source_location": "L9",
       "weight": 0.8,
-      "_src": "env_rationale_1",
-      "_tgt": "db_base",
+      "_src": "db_base",
+      "_tgt": "env_rationale_1",
+      "confidence_score": 0.5,
       "source": "db_base",
-      "target": "env_rationale_1",
-      "confidence_score": 0.5
+      "target": "env_rationale_1"
     },
     {
       "relation": "calls",
@@ -1107,8 +1107,8 @@
       "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
       "source_location": "L27",
       "weight": 1.0,
-      "_src": "health_ready",
-      "_tgt": "db_check_database",
+      "_src": "db_check_database",
+      "_tgt": "health_ready",
       "source": "db_check_database",
       "target": "health_ready"
     },
@@ -1120,9 +1120,9 @@
       "weight": 0.8,
       "_src": "db_rationale_8",
       "_tgt": "config_settings",
+      "confidence_score": 0.5,
       "source": "db_rationale_8",
-      "target": "config_settings",
-      "confidence_score": 0.5
+      "target": "config_settings"
     },
     {
       "relation": "contains",
@@ -1179,8 +1179,8 @@
       "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py",
       "source_location": "L26",
       "weight": 1.0,
-      "_src": "health_ready",
-      "_tgt": "config_get_settings",
+      "_src": "config_get_settings",
+      "_tgt": "health_ready",
       "source": "config_get_settings",
       "target": "health_ready"
     },
@@ -1443,8 +1443,8 @@
       "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/screens/BootstrapScreen.tsx",
       "source_location": "L12",
       "weight": 1.0,
-      "_src": "bootstrapscreen_bootstrapscreen",
-      "_tgt": "index_buildfinancialstate",
+      "_src": "index_buildfinancialstate",
+      "_tgt": "bootstrapscreen_bootstrapscreen",
       "source": "index_buildfinancialstate",
       "target": "bootstrapscreen_bootstrapscreen"
     },
@@ -1467,8 +1467,8 @@
       "source_file": "/Users/tridibdawn/Documents/EMI Coach Application/emi-coach/apps/mobile/src/screens/BootstrapScreen.tsx",
       "source_location": "L13",
       "weight": 1.0,
-      "_src": "bootstrapscreen_bootstrapscreen",
-      "_tgt": "index_getsqlcipherplaceholder",
+      "_src": "index_getsqlcipherplaceholder",
+      "_tgt": "bootstrapscreen_bootstrapscreen",
       "source": "index_getsqlcipherplaceholder",
       "target": "bootstrapscreen_bootstrapscreen"
     },

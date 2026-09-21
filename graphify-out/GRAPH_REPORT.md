@@ -1,7 +1,7 @@
 # Graph Report - /Users/tridibdawn/Documents/EMI Coach Application/emi-coach  (2026-09-21)
 
 ## Corpus Check
-- 57 files · ~16,508 words
+- 57 files · ~18,880 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -77,16 +77,16 @@
 10. `MainActivity` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Alembic env. No financial ledger models exist in Phase 1.` --uses--> `Base`  [INFERRED]
-  /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py
+- `Base` --uses--> `Alembic env. No financial ledger models exist in Phase 1.`  [INFERRED]
+  /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/alembic/env.py
 - `Server metadata only. No financial ledger tables.` --uses--> `Settings`  [INFERRED]
   /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py
-- `ready()` --calls--> `get_settings()`  [INFERRED]
-  /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py
+- `get_settings()` --calls--> `ready()`  [INFERRED]
+  /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py
 - `Base` --uses--> `Settings`  [INFERRED]
   /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/config.py
-- `ready()` --calls--> `check_database()`  [INFERRED]
-  /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py
+- `check_database()` --calls--> `ready()`  [INFERRED]
+  /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/core/db.py → /Users/tridibdawn/Documents/EMI Coach Application/emi-coach/backend/app/api/health.py
 
 ## Communities
 

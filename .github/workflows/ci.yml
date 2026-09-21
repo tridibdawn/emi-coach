@@ -6,7 +6,7 @@ on:
 
 jobs:
   typescript:
-    name: TypeScript lint, typecheck, tests, boundaries
+    name: TypeScript lint, typecheck, tests, mobile Jest, boundaries
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,10 +14,13 @@ jobs:
         with:
           node-version: "22.13"
       - run: corepack enable
+      - run: corepack prepare yarn@4.10.3 --activate
       - run: yarn install --immutable
+      - run: bash scripts/ci-verify-toolchain.sh
       - run: yarn lint
       - run: yarn typecheck
       - run: yarn test:packages
+      - run: yarn workspace @emi-coach/mobile test --watchAll=false
       - run: yarn boundaries
 
   privacy:
@@ -32,6 +35,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: corepack enable
+      - run: corepack prepare yarn@4.10.3 --activate
       - run: yarn install --immutable
       - run: yarn privacy-scan
 
@@ -66,9 +70,17 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
-      - uses: android-actions/setup-android@v3
+      - uses: android-actions/setup-android@v4
+        with:
+          packages: platform-tools
       - run: corepack enable
+      - run: corepack prepare yarn@4.10.3 --activate
       - run: yarn install --immutable
+      - run: bash scripts/ci-verify-toolchain.sh
+        env:
+          VERIFY_JDK: "true"
+      - name: Install and verify Android SDK components
+        run: bash scripts/ci-install-android-sdk.sh
       - name: Assemble debug
         working-directory: apps/mobile/android
         run: ./gradlew assembleDebug --no-daemon
