@@ -73,7 +73,7 @@ CI preinstalls and verifies the SDK components pinned in `apps/mobile/android/bu
 - `ndk/27.1.12297006`
 - `platform-tools`
 
-AGP may auto-download missing SDK packages when licenses are accepted; CI still preinstalls and asserts these paths so runner-image drift cannot pass unnoticed. CI scripts: `scripts/ci-install-android-sdk.sh`, `scripts/ci-verify-android-sdk.sh`.
+AGP may auto-download missing SDK packages when licenses are accepted; CI still preinstalls and asserts these paths so runner-image drift cannot pass unnoticed. CI scripts: `scripts/ci-install-android-sdk.sh`, `scripts/ci-verify-android-sdk.sh`. If the Android job fails, download the `android-gradle-failure-log` artifact from the workflow run for the full Gradle stacktrace.
 
 ```bash
 export JAVA_HOME="/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home"

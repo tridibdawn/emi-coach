@@ -49,11 +49,11 @@ jobs:
           python-version: "3.12"
       - run: python -m venv backend/.venv
       - run: backend/.venv/bin/pip install -e "./backend[dev]"
-      - run: backend/.venv/bin/ruff check app
+      - run: .venv/bin/ruff check app
         working-directory: backend
-      - run: backend/.venv/bin/mypy --config-file pyproject.toml app
+      - run: .venv/bin/mypy --config-file pyproject.toml app
         working-directory: backend
-      - run: backend/.venv/bin/pytest -q
+      - run: .venv/bin/pytest -q
         working-directory: backend
         env:
           PYTHONPATH: .
@@ -81,6 +81,22 @@ jobs:
           VERIFY_JDK: "true"
       - name: Install and verify Android SDK components
         run: bash scripts/ci-install-android-sdk.sh
+      - name: Android build diagnostics
+        working-directory: apps/mobile/android
+        run: |
+          java -version
+          ./gradlew --version
+          echo "$ANDROID_HOME"
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --list | grep -E 'platforms;android-37|build-tools;37.0.0|ndk;27.1.12297006|platform-tools' || true
       - name: Assemble debug
         working-directory: apps/mobile/android
-        run: ./gradlew assembleDebug --no-daemon
+        run: |
+          set -o pipefail
+          ./gradlew assembleDebug --no-daemon --stacktrace --console=plain 2>&1 | tee gradle-build.log
+      - name: Upload Android Gradle failure log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-gradle-failure-log
+          path: apps/mobile/android/gradle-build.log
+          if-no-files-found: warn
