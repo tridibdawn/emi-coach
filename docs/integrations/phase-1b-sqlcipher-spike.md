@@ -63,61 +63,61 @@ The authenticated-read failure is the encryption correctness gate. File-exists c
 
 ### Current results
 
-Last updated: 2026-09-21 (Android spike prep; runtime gates awaiting device/emulator).
+Last updated: 2026-09-24 (Pixel_10 Android Debug runtime spike recorded; iOS native runtime evidence still outstanding).
 
 | Gate | Status | Evidence source | Notes |
 |---|---|---|---|
-| BUILD COMPATIBILITY (Android) | **PASS** | GitHub Actions `ci / Android debug assemble (push)` | Completed successfully (~6m). Proves native compile with SQLCipher linked via `assembleDebug` only. Does **not** prove RUNTIME ENCRYPTION, MIGRATION, or PERSISTENCE. |
+| BUILD COMPATIBILITY (Android) | **PASS** | GitHub Actions `ci / Android debug assemble (push)` | Completed successfully (~6m). Proves native compile with SQLCipher linked via `assembleDebug` only. Does **not** prove RUNTIME ENCRYPTION, MIGRATION, or PERSISTENCE — those are proven by the Pixel_10 `__DEV__` spike below. |
 | BUILD COMPATIBILITY (iOS) | **FAIL** locally / **NOT RUN** in CI | Local `pod install` + `xcodebuild`; gated `ios.yml` | Local: `pod install` OK with `[OP-SQLITE] using SQLCipher`; `xcodebuild` exit 70 (`IDESimulatorFoundation` plug-in). CI: workflow requires `ENABLE_IOS_CI=true` (not enabled). Fixed command: `yarn react-native build-ios --mode Debug --extra-params "-sdk iphonesimulator"`. |
-| RUNTIME ENCRYPTION (Android) | **NOT RUN** | Local `__DEV__` spike on emulator/device | No `adb` / `ANDROID_HOME` / JDK on prep machine; see Android runbook and evidence block below |
-| MIGRATION (Android) | **NOT RUN** | Same Android spike run | — |
-| PERSISTENCE (Android) | **NOT RUN** | Same Android spike run | — |
+| RUNTIME ENCRYPTION (Android) | **PASS** | Pixel_10 emulator, Android Debug `__DEV__` spike | `isSQLCipher()` true; correct-key open succeeded; wrong-key open returned handle (no throw); authenticated read failed with exact error in evidence block |
+| MIGRATION (Android) | **PASS** | Same Pixel_10 spike run | Migration 001 version 1 (`sqlcipher_compatibility_test`) recorded in `schema_migrations` |
+| PERSISTENCE (Android) | **PASS** | Same Pixel_10 spike run | Correct-key reopen: migration 001 and marker `phase1b-spike-v1` present |
 | SQLITE CONFLICT CHECK | **PASS** | `yarn sqlite-conflicts` | 2026-09-21 |
 
-**Overall Phase 1B: NOT YET PASS** — Android RUNTIME ENCRYPTION, MIGRATION, and PERSISTENCE remain NOT RUN (no emulator/device on prep machine). iOS BUILD failed locally and CI iOS is gated. Android `assembleDebug` success does not satisfy runtime gates.
+**Overall Phase 1B: NOT YET PASS** — iOS BUILD COMPATIBILITY is local FAIL / CI NOT RUN; iOS RUNTIME ENCRYPTION, MIGRATION, and PERSISTENCE are NOT RUN. Android RUNTIME ENCRYPTION, MIGRATION, and PERSISTENCE are **PASS** from the Pixel_10 spike (not from `assembleDebug`).
 
-### Android native spike evidence (awaiting device/emulator)
+### Android native spike evidence (Pixel_10 emulator, Android Debug)
 
-No native spike was executed on the prep machine (`adb` unavailable). After the next Android Debug run, copy the **Copy-ready evidence** block from the spike screen into this section. Until then:
+Source: real Android Debug execution on Pixel_10 emulator.
 
 ```text
 ANDROID PHASE 1B SQLCIPHER SPIKE
 
 isSQLCipher():
-NOT RUN
+true
 
 Correct-key open:
-NOT RUN
+PASS — open and execute succeeded
 
 Migration 001 / schema_migrations:
-NOT RUN
+PASS — version 1 (sqlcipher_compatibility_test) recorded
 
 Marker:
-NOT RUN
+phase1b-spike-v1
 
 Wrong-key open:
-NOT RUN
+handle returned (no throw)
 
-Exact wrong-key error text:
-NOT RUN
+Exact wrong-key authenticated-read error text:
+[op-sqlite] sqlite query error: file is not a database
 
 Wrong-key authenticated read:
-NOT RUN
+PASS
 
 Correct-key reopen:
-NOT RUN
+PASS — migration 001 and marker phase1b-spike-v1 present
 
 Persistence marker phase1b-spike-v1:
-NOT RUN
+PASS
 
 Android RUNTIME ENCRYPTION:
-NOT RUN
+PASS
 
 Android MIGRATION:
-NOT RUN
+PASS
 
 Android PERSISTENCE:
-NOT RUN
+PASS
 ```
 
 Automated JS/Python gates (lint, typecheck, tests, boundaries, privacy, `op-sqlite-config`, `sqlcipher-spike-security`, backend): **PASS** (2026-09-21; same CI check page as Android assemble). These do **not** prove SQLCipher runtime encryption.

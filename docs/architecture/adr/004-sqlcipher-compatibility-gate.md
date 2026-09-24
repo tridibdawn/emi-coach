@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted — **Phase 1B implementation complete; native runtime gates NOT RUN in CI agent environment**.
+Accepted — **Phase 1B implementation complete; Android native runtime gates PASS (Pixel_10 Debug spike); iOS native runtime gates NOT RUN; CI does not execute runtime gates**.
 
 ## Context
 
@@ -56,16 +56,16 @@ One active native SQLite at link time = OP-SQLite + SQLCipher. Scanner (`yarn sq
 
 ## Gate matrix
 
-| Gate | CI / local | Current (2026-09-21) |
+| Gate | CI / local | Current (2026-09-24) |
 |---|---|---|
 | BUILD COMPATIBILITY (Android) | CI `assembleDebug` (`.github/workflows/ci.yml`) | **PASS** — GitHub Actions `ci / Android debug assemble (push)` completed successfully. `assembleDebug` does not prove RUNTIME ENCRYPTION, MIGRATION, or PERSISTENCE. |
 | BUILD COMPATIBILITY (iOS) | Gated `ios.yml` when `ENABLE_IOS_CI=true`; `build-ios --mode Debug --extra-params "-sdk iphonesimulator"` | Local FAIL (`xcodebuild` plug-in); CI NOT RUN (`ENABLE_IOS_CI` not enabled) |
-| RUNTIME ENCRYPTION (Android) | Local `__DEV__` spike on emulator/device | **NOT RUN** — no `adb` / emulator on prep machine; spike UI ready with copy-ready evidence block |
-| MIGRATION (Android) | Same Android spike run | **NOT RUN** |
-| PERSISTENCE (Android) | Same Android spike run | **NOT RUN** |
+| RUNTIME ENCRYPTION (Android) | Local `__DEV__` spike on emulator/device | **PASS** — Pixel_10 emulator Android Debug spike; `isSQLCipher()` true; wrong-key authenticated read failed (`[op-sqlite] sqlite query error: file is not a database`) |
+| MIGRATION (Android) | Same Android spike run | **PASS** — migration 001 version 1 (`sqlcipher_compatibility_test`) in `schema_migrations` |
+| PERSISTENCE (Android) | Same Android spike run | **PASS** — correct-key reopen; marker `phase1b-spike-v1` |
 | SQLITE CONFLICT CHECK | `yarn sqlite-conflicts` | PASS |
 
-**Overall Phase 1B: NOT YET PASS.**
+**Overall Phase 1B: NOT YET PASS.** iOS native runtime evidence is still outstanding. Android RUNTIME ENCRYPTION, MIGRATION, and PERSISTENCE are proven by the Pixel_10 local spike, not by `assembleDebug`.
 
 **Phase 1B PASS** requires all five runtime/build/conflict gates PASS. CI **must not** treat `assembleDebug` or `build-ios` alone as RUNTIME ENCRYPTION / MIGRATION / PERSISTENCE PASS.
 
