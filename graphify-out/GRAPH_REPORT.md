@@ -1,11 +1,11 @@
-# Graph Report - /Users/tridibdawn/Documents/EMI Coach Application/emi-coach  (2026-09-21)
+# Graph Report - /Users/tridibdawn/Documents/EMI Coach Application/emi-coach  (2026-09-24)
 
 ## Corpus Check
-- 27030 files · ~28,787,588 words
+- 27031 files · ~29,307,571 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 26687 nodes · 41521 edges · 14234 communities detected
+- 26688 nodes · 41521 edges · 14235 communities detected
 - Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 3129 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -14244,6 +14244,7 @@
 - [[_COMMUNITY_Community 14231|Community 14231]]
 - [[_COMMUNITY_Community 14232|Community 14232]]
 - [[_COMMUNITY_Community 14233|Community 14233]]
+- [[_COMMUNITY_Community 14234|Community 14234]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `size()` - 165 edges
@@ -71302,6 +71303,10 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 14234 - "Community 14234"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
 - **9 isolated node(s):** `No SQLAlchemy financial models. This module is scanned by the privacy CI check.`, `PodsDummy_ReactCodegen`, `PodsDummy_Pods_EmiCoach`, `PodsDummy_op_sqlite`, `PodsDummy_react_native_safe_area_context` (+4 more)
   These have ≤1 connection - possible missing edges or undocumented components.
@@ -97977,20 +97982,22 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 14231`** (1 nodes): `migrations.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 14232`** (1 nodes): `migrations.test.ts`
+- **Thin community `Community 14232`** (1 nodes): `runCompatibilitySpike.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 14233`** (1 nodes): `testOnlyKey.fixture.ts`
+- **Thin community `Community 14233`** (1 nodes): `migrations.test.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 14234`** (1 nodes): `testOnlyKey.fixture.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `move()` connect `Community 11` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 5`, `Community 6`, `Community 7`, `Community 8`, `Community 9`, `Community 134`, `Community 10`, `Community 140`, `Community 13`, `Community 14`, `Community 16`, `Community 17`, `Community 18`, `Community 19`, `Community 20`, `Community 21`, `Community 22`, `Community 23`, `Community 25`, `Community 32`, `Community 33`, `Community 34`, `Community 37`, `Community 38`, `Community 40`, `Community 43`, `Community 44`, `Community 47`, `Community 50`, `Community 54`, `Community 55`, `Community 68`, `Community 73`, `Community 81`, `Community 87`, `Community 114`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Why does `size()` connect `Community 21` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 6`, `Community 7`, `Community 8`, `Community 10`, `Community 13`, `Community 14`, `Community 15`, `Community 17`, `Community 18`, `Community 24`, `Community 26`, `Community 27`, `Community 28`, `Community 33`, `Community 38`, `Community 42`, `Community 43`, `Community 47`, `Community 50`, `Community 56`, `Community 66`, `Community 68`, `Community 73`, `Community 80`, `Community 81`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **Why does `end()` connect `Community 3` to `Community 1`, `Community 2`, `Community 4`, `Community 5`, `Community 6`, `Community 135`, `Community 8`, `Community 9`, `Community 13`, `Community 15`, `Community 16`, `Community 17`, `Community 18`, `Community 21`, `Community 24`, `Community 26`, `Community 27`, `Community 30`, `Community 31`, `Community 38`, `Community 40`, `Community 42`, `Community 45`, `Community 50`, `Community 54`, `Community 61`, `Community 72`, `Community 80`, `Community 109`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **Why does `size()` connect `Community 21` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 6`, `Community 7`, `Community 8`, `Community 10`, `Community 13`, `Community 14`, `Community 15`, `Community 17`, `Community 18`, `Community 24`, `Community 26`, `Community 27`, `Community 28`, `Community 33`, `Community 38`, `Community 42`, `Community 43`, `Community 47`, `Community 50`, `Community 56`, `Community 66`, `Community 68`, `Community 73`, `Community 80`, `Community 81`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **Are the 146 inferred relationships involving `size()` (e.g. with `facebook()` and `facebook()`) actually correct?**
   _`size()` has 146 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 136 inferred relationships involving `move()` (e.g. with `setGridTemplateColumns()` and `setGridTemplateRows()`) actually correct?**

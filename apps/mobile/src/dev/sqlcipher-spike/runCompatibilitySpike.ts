@@ -41,13 +41,14 @@ export type CompatibilitySpikeResult = {
   error?: string;
 };
 
-function isWrongKeyReadError(error: unknown): boolean {
+export function isWrongKeyReadError(error: unknown): boolean {
   const message =
     error instanceof Error ? error.message : String(error ?? 'unknown error');
   const normalized = message.toLowerCase();
   return (
     normalized.includes('notadb') ||
     normalized.includes('file is encrypted or is not a database') ||
+    normalized.includes('file is not a database') ||
     normalized.includes('encrypted') ||
     normalized.includes('malformed')
   );
